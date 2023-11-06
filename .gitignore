@@ -1,0 +1,20 @@
+# Terraform
+.terraform/
+
+# Local .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files that are executed
+*.tfvars
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually next to the .tf file
+override.tf
+!example_override_override.tf
+
+# Ignore all .tf files in the working directory except .tf files in the root directory
+**/*.tf
+!/*.tf
