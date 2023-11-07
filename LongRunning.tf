@@ -35,7 +35,6 @@ resource "aws_route_table_association" "public_route_table_association_1b" {
 }
 
 
-
 #Route Table
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.my_vpc.id
@@ -115,42 +114,29 @@ resource "aws_route_table_association" "private_subnet1b" {
 
 resource "aws_s3_bucket" "LegoBuilder" {
   bucket = "lego-defender-model" 
+}
 
-  aws_s3_bucket_versioning {
-    enabled = true
+resource "aws_s3_bucket_versioning" "versioning_lego" {
+  bucket = aws_s3_bucket.LegoBuilder.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 
-resource "aws_s3_bucket_policy" "onlyAndyWR" {
-  bucket = aws_s3_bucket.LegoBuilder.id
-
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Action = "s3:GetObject",
-        Effect = "Allow",
-        Resource = aws_s3_bucket.LegoBuilder.arn,
-        Principal = "*",
-      },
-      {
-        Action = "s3:PutObject",
-        Effect = "Allow",
-        Resource = "${aws_s3_bucket.LegoBuilder.arn}/*",
-        Principal = "arn:aws:iam::732509143253:root" 
-      },
-      {
-        Action = "s3:PutObject",
-        Effect = "Allow",
-        Resource = "${aws_s3_bucket.LegoBuilder.arn}/*",
-        Principal = "arn:aws:iam::OTHER_ACCOUNT_ID:root" # Ersetzen Sie OTHER_ACCOUNT_ID durch die AWS-Konto-ID des anderen erlaubten Kontos
-      },
-    ],
-  })
-}
-
-
 ############################## DynamoDB ####################################
+
+# VPC Endpoint DynamoDB
+resource "aws_vpc_endpoint" "dynamodb_endpoint" {
+  vpc_id       = aws_vpc.my_vpc.id
+  service_name = "com.amazonaws.eu-central-1.dynamodb"
+  vpc_endpoint_type = "Gateway"
+
+  # Nur private Subnetze sollen Zugriff haben
+  route_table_ids = [
+    aws_route_table.private_route_table1a.id,
+    aws_route_table.private_route_table1b.id,
+  ]
+}
 
 resource "aws_dynamodb_table" "kunde" {
   name           = "Kunde"
