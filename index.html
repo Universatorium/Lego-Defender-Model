@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Generator</title>
+    <style>
+        .generate-button {
+            background-color: #4CAF50;
+            color: rgb(242, 236, 236);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: #131313 10px 6px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+        generate-button:hover {
+            background-color: #131313; 
+        }
+    </style>
+    <script src="https://unpkg.com/jspdf-invoice-template@1.4.3/dist/index.js"></script>
+</head>
+<body>
+    <h1>Willkommen auf meiner Demosite</h1>
+    <!-- <img blablasrc="Bilder/603c454b0dd6bf1c58072c6e_Untitled-21.png" alt="Ein Beispielbild" width="300" height="200"> -->
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <button class="generate-button" onclick="generatePDF()">PDF Erstellen und Herunterladen</button>
+    <!-- <button onclick="generatePDF()">Generate PDF</button> -->
+
+    <script>
+        function generatePDF() {
+            var pdfObject = jsPDFInvoiceTemplate.default(props);
+
+            // Optional: Speichere das PDF-Objekt als Datei
+            pdfObject.save("Rechnung.pdf");
+
+            console.log("Object created: ", pdfObject);
+        }
+
+        var props = {
+            outputType: jsPDFInvoiceTemplate.OutputType.Save,
+            returnJsPDFDocObject: true,
+            fileName: "Rechnung",
+            orientationLandscape: false,
+            compress: true,
+            logo: {
+                src: "https://raw.githubusercontent.com/edisonneza/jspdf-invoice-template/demo/images/logo.png",
+                type: 'PNG', //optional, when src= data:uri (nodejs case)
+                width: 53.33, //aspect ratio = width/height
+                height: 26.66,
+                margin: {
+                    top: 0, //negative or positive num, from the current position
+                    left: 0 //negative or positive num, from the current position
+                }
+            },
+            stamp: {
+                inAllPages: true, //by default = false, just in the last page
+                src: "https://raw.githubusercontent.com/edisonneza/jspdf-invoice-template/demo/images/qr_code.jpg",
+                type: 'JPG', //optional, when src= data:uri (nodejs case)
+                width: 20, //aspect ratio = width/height
+                height: 20,
+                margin: {
+                    top: 0, //negative or positive num, from the current position
+                    left: 0 //negative or positive num, from the current position
+                }
+            },
+            business: {
+                name: "Business Name",
+                address: "Albania, Tirane ish-Dogana, Durres 2001",
+                phone: "(+355) 069 11 11 111",
+                email: "email@example.com",
+                email_1: "info@example.al",
+                website: "www.example.al",
+            },
+            contact: {
+                label: "Invoice issued for:",
+                name: "Client Name",
+                address: "Albania, Tirane, Astir",
+                phone: "(+355) 069 22 22 222",
+                email: "client@website.al",
+                otherInfo: "www.website.al",
+            },
+            invoice: {
+                label: "Invoice #: ",
+                num: 19,
+                invDate: "Payment Date: 01/01/2021 18:12",
+                invGenDate: "Invoice Date: 02/02/2021 10:17",
+                headerBorder: false,
+                tableBodyBorder: false,
+                header: [
+                    {
+                        title: "#", 
+                        style: { 
+                            width: 10 
+                        } 
+                    }, 
+                    { 
+                        title: "Kunde",
+                        style: {
+                            width: 30
+                        } 
+                    },  
+                    { 
+                        title: "Konfiguration",
+                        style: {
+                            width: 80
+                        } 
+                    }, 
+                    { title: "Preis"},
+                    //{ title: "Menge"},
+                    { title: "Produkt"},
+                    //{ title: "Gesamtpreis"}
+                ],
+                table: Array.from(Array(10), (item, index)=>([
+                    index + 1,
+                    "There are many variations ",
+                    "Lorem Ipsum is simply dummy text dummy text ",
+                    200.5,
+                    //4.5,
+                    "m2",
+                    //400.5
+                ])),
+                additionalRows: [{
+                    col1: 'Gesamtpreis:',
+                    col2: '145,250.50',
+                    col3: 'ALL',
+                    style: {
+                        fontSize: 14 //optional, default 12
+                    }
+                },
+                {
+                    col1: 'VAT:',
+                    col2: '20',
+                    col3: '%',
+                    style: {
+                        fontSize: 10 //optional, default 12
+                    }
+                },
+                {
+                    col1: 'SubTotal:',
+                    col2: '116,199.90',
+                    col3: 'ALL',
+                    style: {
+                        fontSize: 10 //optional, default 12
+                    }
+                }],
+                invDescLabel: "Invoice Note",
+                invDesc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
+            },
+            footer: {
+                text: "The invoice is created on a computer and is valid without the signature and stamp.",
+            },
+            pageEnable: true,
+            pageLabel: "Page ",
+        };
+    </script>
+</body>
+</html>
