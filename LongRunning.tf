@@ -1,4 +1,4 @@
-###############################################################################
+################################## VPC #############################################
 
 #VPC
 resource "aws_vpc" "my_vpc" {
@@ -110,16 +110,39 @@ resource "aws_route_table_association" "private_subnet1b" {
 }
 
 
+
+
 ################################ S3 #################################
 
 resource "aws_s3_bucket" "LegoBuilder" {
-  bucket = "lego-defender-model" 
+  bucket = "lego-defender-model-testing" 
 }
 
 resource "aws_s3_bucket_versioning" "versioning_lego" {
   bucket = aws_s3_bucket.LegoBuilder.id
   versioning_configuration {
     status = "Enabled"
+  }
+}
+resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+  bucket = aws_s3_bucket.LegoBuilder.id
+  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+}
+data "aws_iam_policy_document" "allow_access_from_another_account" {
+  statement {
+    principals {
+      type        = "AWS"
+      identifiers = ["043412102071", "506545972720"]
+    }
+
+    actions = [
+      "s3:*",
+    ]
+
+    resources = [
+      aws_s3_bucket.LegoBuilder.arn,
+      "${aws_s3_bucket.LegoBuilder.arn}/*",
+    ]
   }
 }
 
@@ -276,6 +299,3 @@ resource "aws_dynamodb_table_item" "fertigungsliste_data" {
 }
 ITEM
 }
-
-
-
