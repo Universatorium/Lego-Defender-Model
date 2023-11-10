@@ -4,12 +4,9 @@ import QRKonstruktion from "./src/components/QR-Scanner-Konstruktion";
 
 export default function App() {
     return (
-        <View>
-            {/* <Text style={{ color: "#fff" }}>
-                Hier entsteht die MitarbeiterApp!
-            </Text> */}
-            <StatusBar style="auto" />
+        <View style={styles.container}>
             <QRKonstruktion />
+            <StatusBar style="auto" />
         </View>
     );
 }

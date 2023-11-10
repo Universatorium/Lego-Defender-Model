@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#181818",
     },
     Scanner: {
-        width: "70%",
-        height: "50%",
+        width: "100%",
+        height: "100%",
         backgroundColor: "#181818",
     },
 });
