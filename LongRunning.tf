@@ -115,7 +115,7 @@ resource "aws_route_table_association" "private_subnet1b" {
 ################################ S3 #################################
 
 resource "aws_s3_bucket" "LegoBuilder" {
-  bucket = "lego-defender-model-testing" 
+  bucket = "lego-defender-model-auto" 
 }
 
 resource "aws_s3_bucket_versioning" "versioning_lego" {
@@ -132,7 +132,7 @@ data "aws_iam_policy_document" "allow_access_from_another_account" {
   statement {
     principals {
       type        = "AWS"
-      identifiers = ["043412102071", "506545972720"]
+      identifiers = ["043412102071", "506545972720","854278641342", "519140765420", "001240060869", "720695033514", "506545972720", "900462273402", "183351876724", "732509143253"]
     }
 
     actions = [
@@ -299,3 +299,32 @@ resource "aws_dynamodb_table_item" "fertigungsliste_data" {
 }
 ITEM
 }
+
+# {
+#     "Version": "2012-10-17",
+#     "Statement": [
+#         {    
+#             "Sid": "PublicReadGetObject",
+#             "Effect": "Allow",
+#             "Principal": {
+#                 "AWS": [
+#                     "arn:aws:iam::525313980360:root",
+#                     "arn:aws:iam::043412102071:root",
+#                     "arn:aws:iam::854278641342:root",
+#                     "arn:aws:iam::519140765420:root",
+#                     "arn:aws:iam::001240060869:root",
+#                     "arn:aws:iam::720695033514:root",
+#                     "arn:aws:iam::506545972720:root",
+#                     "arn:aws:iam::900462273402:root",
+#                     "arn:aws:iam::183351876724:root",
+#                     "arn:aws:iam::732509143253:root"
+#                 ]
+#             },
+#             "Action": "s3:*",
+#             "Resource": [
+#                 "arn:aws:s3:::lego-defender-model-testing/*",
+#                 "arn:aws:s3:::lego-defender-model-testing"
+#             ]
+#         }
+#     ]
+# }
