@@ -19,7 +19,7 @@ resource "aws_lambda_function" "example" {
 }
 
 resource "aws_iam_role" "lambda" {
-  name = "my-lambda-role"
+  name = "lego-lambda-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
