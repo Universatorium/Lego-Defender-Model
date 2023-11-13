@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         backgroundColor: "#181818",
+        marginTop: StatusBar.currentHeight,
     },
     Scanner: {
         width: "100%",
