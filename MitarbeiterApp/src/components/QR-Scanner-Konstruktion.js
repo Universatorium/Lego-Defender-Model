@@ -56,11 +56,16 @@ export default function QRKonstruktion() {
                         />
                     </View>
                 )}
+            </View>
+            <View style={styles.AgainButtonContainer}>
                 {scanned && (
                     <Button
                         title={"Tap to Scan Again"}
                         onPress={() => setScanned(false)}
                     />
+                )}
+                {showScanner && !scanned && (
+                    <Button title={"Stop Scanning"} onPress={stopScanning} />
                 )}
             </View>
         </View>
@@ -72,12 +77,11 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         backgroundColor: "#181818",
-        marginTop: StatusBar.currentHeight,
+        // marginTop: StatusBar.currentHeight,
     },
     Scanner: {
         width: "100%",
         height: "100%",
-        // backgroundColor: "#181818",
     },
     ButtonContainer: {
         flex: 1,
@@ -85,6 +89,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     AgainButtonContainer: {
+        position: "absolute",
+        bottom: "33%",
+        width: "100%",
         justifyContent: "center",
         alignItems: "center",
     },
