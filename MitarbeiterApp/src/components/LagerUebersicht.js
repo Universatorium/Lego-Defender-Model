@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "#181818",
         marginTop: StatusBar.currentHeight,
+        maxWidth: "80%",
     },
     row: {
         flexDirection: "row",
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
         borderBottomColor: "#ddd",
     },
     cell: {
-        minWidth: 90,
+        minWidth: 70,
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
