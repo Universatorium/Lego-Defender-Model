@@ -124,27 +124,27 @@ resource "aws_s3_bucket_versioning" "versioning_lego" {
     status = "Enabled"
   }
 }
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.LegoBuilder.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
-}
-data "aws_iam_policy_document" "allow_access_from_another_account" {
-  statement {
-    principals {
-      type        = "AWS"
-      identifiers = ["043412102071", "506545972720","854278641342", "519140765420", "001240060869", "720695033514", "506545972720", "900462273402", "183351876724", "732509143253"]
-    }
+# resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+#   bucket = aws_s3_bucket.LegoBuilder.id
+#   policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+# }
+# data "aws_iam_policy_document" "allow_access_from_another_account" {
+#   statement {
+#     principals {
+#       type        = "AWS"
+#       identifiers = ["043412102071", "506545972720","854278641342", "519140765420", "001240060869", "720695033514", "506545972720", "900462273402", "183351876724", "732509143253"]
+#     }
 
-    actions = [
-      "s3:*",
-    ]
+#     actions = [
+#       "s3:*",
+#     ]
 
-    resources = [
-      aws_s3_bucket.LegoBuilder.arn,
-      "${aws_s3_bucket.LegoBuilder.arn}/*",
-    ]
-  }
-}
+#     resources = [
+#       aws_s3_bucket.LegoBuilder.arn,
+#       "${aws_s3_bucket.LegoBuilder.arn}/*",
+#     ]
+#   }
+# }
 
 ############################## DynamoDB ####################################
 
