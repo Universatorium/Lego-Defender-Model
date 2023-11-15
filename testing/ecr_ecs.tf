@@ -222,23 +222,20 @@ output "aws_account_id" {
 
 
 resource "null_resource" "docker_packaging" {
+  provisioner "local-exec" {
+    command = <<EOF
+      aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-central-1.amazonaws.com
+      docker build -t frontend-ecr-repo .
+      docker tag frontend-ecr-repo:latest ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
+      docker push ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
+    EOF
+  }
 
-      provisioner "local-exec" {
-        command = <<EOF
-        aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-central-1.amazonaws.com
-        docker build -t ${aws_ecr_repository.frontend_ecr_repo.repository_url} .
-        docker tag frontend_ecr_repo:latest ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
-        docker push ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
-        EOF
-      }
+  triggers = {
+    "run_at" = timestamp()
+  }
 
-
-      triggers = {
-        "run_at" = timestamp()
-      }
-
-
-      depends_on = [
-        aws_ecr_repository.frontend_ecr_repo,
-      ]
+  depends_on = [
+    aws_ecr_repository.frontend_ecr_repo,
+  ]
 }
