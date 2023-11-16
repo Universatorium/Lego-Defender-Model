@@ -1,31 +1,24 @@
-# IAM-Rolle im Ursprungs-Account
-resource "aws_iam_role" "source_account_role" {
-  name = "DynamoDBSourceAccountRole"
-  
+resource "aws_iam_role" "dynamodb_owner_role" {
+  name = "DynamoDBOwnerRole"
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
       Action = "sts:AssumeRole",
       Effect = "Allow",
       Principal = {
-        AWS = "arn:aws:iam::732509143253:root"
+        Service = "dynamodb.amazonaws.com"
       }
     }]
   })
 }
 
-# IAM-Rolle im Ziel-Account
-resource "aws_iam_role" "target_account_role" {
-  name = "DynamoDBTargetAccountRole"
-  
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Action = "sts:AssumeRole",
-      Effect = "Allow",
-      Principal = {
-        AWS = "arn:aws:iam::043412102071:root"
-      }
-    }]
-  })
+resource "aws_iam_role_policy_attachment" "dynamodb_owner_attachment" {
+  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+  role       = aws_iam_role.dynamodb_owner_role.name
 }
+
+output "dynamodb_owner_role_arn" {
+  value = aws_iam_role.dynamodb_owner_role.arn
+}
+

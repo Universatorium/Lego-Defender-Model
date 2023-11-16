@@ -124,6 +124,9 @@ resource "aws_s3_bucket_versioning" "versioning_lego" {
     status = "Enabled"
   }
 }
+
+
+
 # resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
 #   bucket = aws_s3_bucket.LegoBuilder.id
 #   policy = data.aws_iam_policy_document.allow_access_from_another_account.json
@@ -147,19 +150,6 @@ resource "aws_s3_bucket_versioning" "versioning_lego" {
 # }
 
 ############################## DynamoDB ####################################
-
-# VPC Endpoint DynamoDB
-resource "aws_vpc_endpoint" "dynamodb_endpoint" {
-  vpc_id       = aws_vpc.my_vpc.id
-  service_name = "com.amazonaws.eu-central-1.dynamodb"
-  vpc_endpoint_type = "Gateway"
-
-  # Nur private Subnetze sollen Zugriff haben
-  route_table_ids = [
-    aws_route_table.private_route_table1a.id,
-    aws_route_table.private_route_table1b.id,
-  ]
-}
 
 resource "aws_dynamodb_table" "kunde" {
   name           = "Kunde"
@@ -269,6 +259,25 @@ resource "aws_dynamodb_table_item" "lager_data" {
 }
 ITEM
 }
+
+resource "aws_dynamodb_table_item" "lager_data2" {
+  table_name = aws_dynamodb_table.lager.name
+  hash_key   = "ID-Lager"
+
+  item = <<ITEM
+{
+  "ID-Lager": {"N": "2"},
+  "Name": {"S": "Lager2"},
+  "Beschreibung": {"S": "Beschreibung2"},
+  "S3 BildURL": {"S": "URL1"},
+  "Anzahl": {"N": "100"},
+  "Farbe": {"S": "Rot"},
+  "Preis": {"N": "10.99"}
+}
+ITEM
+}
+
+
 
 ############################ Dummy Daten für Tabelle Auftrag #################################
 resource "aws_dynamodb_table_item" "auftrag_data" {
