@@ -54,11 +54,6 @@ resource "aws_iam_policy" "lambda_policy" {
             "Resource": "*"
         },
         {
-        Action   = "lambda:InvokeFunction",
-        Effect   = "Allow",
-        Resource = aws_lambda_function.initialize_dynamodb.arn,
-      },
-        {
             "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": [
@@ -121,24 +116,6 @@ resource "aws_lambda_permission" "allow_dynamodb_fertigungsliste" {
 }
 
 
-resource "aws_cloudwatch_event_rule" "dynamodb_trigger" {
-  name        = "dynamodb_trigger"
-  description = "Trigger Lambda on DynamoDB startup"
-  event_pattern = <<PATTERN
-{
-  "source": ["aws.dynamodb"],
-  "detail": {
-    "eventName": ["CreateTable"]
-  }
-}
-PATTERN
-}
-
-resource "aws_cloudwatch_event_target" "lambda_target" {
-  rule      = aws_cloudwatch_event_rule.dynamodb_trigger.name
-  target_id = "lambda_target"
-  arn       = aws_lambda_function.initialize_dynamodb.arn
-}
 
 ############################## DynamoDB ####################################
 
