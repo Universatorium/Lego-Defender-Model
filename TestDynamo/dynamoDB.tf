@@ -174,3 +174,20 @@ resource "aws_dynamodb_table" "fertigungsliste" {
     type = "N"
   }
 }
+
+
+########################### local exec ####################
+resource "null_resource" "invoke_lambda" {
+  depends_on = [
+    aws_dynamodb_table.kunde,
+    aws_dynamodb_table.mitarbeiter,
+    aws_dynamodb_table.lager,
+    aws_dynamodb_table.auftrag,
+    aws_dynamodb_table.fertigungsliste,
+    aws_lambda_function.initialize_dynamodb,
+  ]
+
+  provisioner "local-exec" {
+    command = "aws lambda invoke --function-name InitializeDynamoDB output.txt --region eu-central-1"
+  }
+}
