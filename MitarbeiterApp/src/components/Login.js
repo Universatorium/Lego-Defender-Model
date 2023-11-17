@@ -6,25 +6,32 @@ import {
     SafeAreaView,
     TextInput,
 } from "react-native";
+import LagerUebersicht from "./LagerUebersicht";
 
 const loginFunction = () => {
+    const [mitarbeiter, setMitarbeiter] = useState(false);
     alert("Login");
+    setMitarbeiter("Lager");
 };
 export default function Login() {
     return (
         <SafeAreaView style={styles.safeContainer}>
             <View style={styles.container}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Mitarbeiter ID"
-                    placeholderTextColor="#ddd"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Passwort"
-                    placeholderTextColor="#ddd"
-                />
-                <Button title="Login" onPress={loginFunction} />
+                {!mitarbeiter && (
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Mitarbeiter ID"
+                            placeholderTextColor="#ddd"
+                        />
+                    ) && (
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Passwort"
+                            placeholderTextColor="#ddd"
+                        />
+                    ) && <Button title="Login" onPress={loginFunction} />}
+                {mitarbeiter === "Lager" && <LagerUebersicht />}
+                {mitarbeiter === "Konstruktion" && <Konstruktion />}
             </View>
         </SafeAreaView>
     );
