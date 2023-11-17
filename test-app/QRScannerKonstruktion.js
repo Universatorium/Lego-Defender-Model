@@ -27,7 +27,7 @@ export default function QRKonstruktion() {
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
         alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-        // stopScanning();
+        stopScanning();
     };
 
     if (hasPermission === null) {

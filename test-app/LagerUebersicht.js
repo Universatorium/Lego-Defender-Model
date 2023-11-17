@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import dummydata from "./components/dummydata.json";
 import { useNavigation } from '@react-navigation/native'; // Import der useNavigation-Hook
-// import QRScannerKonstruktion from './QRScannerKonstruktion';
 
 export default function LagerUebersicht() {
   const navigation = useNavigation(); // Verwendung der useNavigation-Hook
