@@ -1,0 +1,12 @@
+[
+    {
+        "ID-Fertigungsliste": 1,
+        "ID-Auftrag": 1,
+        "konfigurations-liste-detailiert": "test"
+    },
+    {
+        "ID-Fertigungsliste": 2,
+        "ID-Auftrag": 2,
+        "konfigurations-liste-detailiert": "test2"
+    }
+]
