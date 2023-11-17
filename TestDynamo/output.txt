@@ -1,0 +1,1 @@
+{"statusCode": 200, "body": "\"Datens\\u00e4tze erfolgreich hinzugef\\u00fcgt!\""}
