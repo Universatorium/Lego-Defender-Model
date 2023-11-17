@@ -1,0 +1,162 @@
+[
+    {
+        "ID-Kunde": 1,
+        "Email": "Hubert1@gmail.com",
+        "Vorname": "Hubert",
+        "Nachname": "Pouros",
+        "Telefon": "+1 (301) 564-2414",
+        "Adresse": "7547 Schamberger Parkway"
+    },
+    {
+        "ID-Kunde": 2,
+        "Email": "Delbert_Prosacco@gmail.com",
+        "Vorname": "Delbert",
+        "Nachname": "Prosacco",
+        "Telefon": "+1 (406) 939-0582",
+        "Adresse": "2030 Stacey Via"
+    },
+    {
+        "ID-Kunde": 3,
+        "Email": "Craig79@hotmail.com",
+        "Vorname": "Craig",
+        "Nachname": "Oberbrunner",
+        "Telefon": "+1 (037) 657-3236",
+        "Adresse": "209 Freddie Plain"
+    },
+    {
+        "ID-Kunde": 4,
+        "Email": "Norman.Farrell-Bode21@gmail.com",
+        "Vorname": "Norman",
+        "Nachname": "Farrell-Bode",
+        "Telefon": "+1 (036) 143-3159",
+        "Adresse": "66273 Nicolas Ridge"
+    },
+    {
+        "ID-Kunde": 5,
+        "Email": "Harold7@hotmail.com",
+        "Vorname": "Harold",
+        "Nachname": "Ratke",
+        "Telefon": "+1 (932) 455-2312",
+        "Adresse": "807 Alexys Keys"
+    },
+    {
+        "ID-Kunde": 6,
+        "Email": "Jennie_Reichel@yahoo.com",
+        "Vorname": "Jennie",
+        "Nachname": "Reichel",
+        "Telefon": "+1 (018) 625-5354",
+        "Adresse": "4411 Lucile Stravenue"
+    },
+    {
+        "ID-Kunde": 7,
+        "Email": "Beulah.Bergnaum-Rath42@gmail.com",
+        "Vorname": "Beulah",
+        "Nachname": "Bergnaum-Rath",
+        "Telefon": "+1 (573) 942-5410",
+        "Adresse": "61157 Jacobson Mount"
+    },
+    {
+        "ID-Kunde": 8,
+        "Email": "Christopher_Larson42@gmail.com",
+        "Vorname": "Christopher",
+        "Nachname": "Larson",
+        "Telefon": "+1 (870) 163-0443",
+        "Adresse": "23577 Keeling Shores"
+    },
+    {
+        "ID-Kunde": 9,
+        "Email": "Todd17@yahoo.com",
+        "Vorname": "Todd",
+        "Nachname": "Robel",
+        "Telefon": "+1 (042) 520-9432",
+        "Adresse": "2320 Gerda Corners"
+    },
+    {
+        "ID-Kunde": 10,
+        "Email": "Brittany_Jaskolski93@gmail.com",
+        "Vorname": "Brittany",
+        "Nachname": "Jaskolski",
+        "Telefon": "+1 (014) 912-2450",
+        "Adresse": "8108 Daryl Bypass"
+    },
+    {
+        "ID-Kunde": 11,
+        "Email": "Mary.Hamill1@yahoo.com",
+        "Vorname": "Mary",
+        "Nachname": "Hamill",
+        "Telefon": "+1 (133) 738-5382",
+        "Adresse": "3111 Foster Heights"
+    },
+    {
+        "ID-Kunde": 12,
+        "Email": "Calvin35@hotmail.com",
+        "Vorname": "Calvin",
+        "Nachname": "Fadel-Larson",
+        "Telefon": "+1 (081) 049-4511",
+        "Adresse": "5442 Neva Lodge"
+    },
+    {
+        "ID-Kunde": 13,
+        "Email": "Doreen.Mills32@hotmail.com",
+        "Vorname": "Doreen",
+        "Nachname": "Mills",
+        "Telefon": "+1 (976) 243-6904",
+        "Adresse": "54728 Kaylie Landing"
+    },
+    {
+        "ID-Kunde": 14,
+        "Email": "Sara_Balistreri26@hotmail.com",
+        "Vorname": "Sara",
+        "Nachname": "Balistreri",
+        "Telefon": "+1 (514) 733-2191",
+        "Adresse": "38810 Monroe Views"
+    },
+    {
+        "ID-Kunde": 15,
+        "Email": "Ken.Rodriguez91@gmail.com",
+        "Vorname": "Ken",
+        "Nachname": "Rodriguez",
+        "Telefon": "+1 (838) 433-7129",
+        "Adresse": "97796 Vicky Skyway"
+    },
+    {
+        "ID-Kunde": 16,
+        "Email": "Clarence_Effertz24@hotmail.com",
+        "Vorname": "Clarence",
+        "Nachname": "Effertz",
+        "Telefon": "+1 (786) 285-7079",
+        "Adresse": "5756 Blanda Bridge"
+    },
+    {
+        "ID-Kunde": 17,
+        "Email": "Jody_OConner@gmail.com",
+        "Vorname": "Jody",
+        "Nachname": "O'Conner",
+        "Telefon": "+1 (887) 553-5163",
+        "Adresse": "994 Erdman Meadow"
+    },
+    {
+        "ID-Kunde": 18,
+        "Email": "Mable.Cruickshank@gmail.com",
+        "Vorname": "Mable",
+        "Nachname": "Cruickshank",
+        "Telefon": "+1 (329) 334-3562",
+        "Adresse": "5779 Bogan Trafficway"
+    },
+    {
+        "ID-Kunde": 19,
+        "Email": "Gloria97@yahoo.com",
+        "Vorname": "Gloria",
+        "Nachname": "Wisozk",
+        "Telefon": "+1 (527) 103-4230",
+        "Adresse": "7328 Cloyd Freeway"
+    },
+    {
+        "ID-Kunde": 20,
+        "Email": "Raquel39@gmail.com",
+        "Vorname": "Raquel",
+        "Nachname": "Stark",
+        "Telefon": "+1 (462) 178-0632",
+        "Adresse": "793 Asa Green"
+    }
+]
