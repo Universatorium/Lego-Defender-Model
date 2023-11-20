@@ -114,7 +114,7 @@ resource "aws_route_table_association" "private_subnet1b" {
 }
 
 
-########################## ECR ###################################
+########################## ECR ECS ###################################
 
 #upload fuer die Frontend Docker
 
@@ -182,18 +182,18 @@ resource "aws_ecs_cluster" "frontend_cluster" {
   name = "frontend-ecs-cluster"
 }
 
-# ECS Service (Fargate oder EC2, je nach Ihren Anforderungen)
+# ECS Service 
 resource "aws_ecs_service" "frontend_service" {
   name            = "frontend-ecs-service"
   cluster         = aws_ecs_cluster.frontend_cluster.id
   task_definition = aws_ecs_task_definition.frontend_task_definition.arn
-  launch_type     = "FARGATE"  # Oder "EC2" je nach Bedarf
+  launch_type     = "FARGATE"  
   network_configuration {
     subnets = [aws_subnet.public_subnet1a.id, aws_subnet.public_subnet1b.id]
     security_groups = [aws_security_group.frontend_security_group.id]
   }
 
-  # Weitere Konfigurationsoptionen je nach Ihren Anforderungen
+  # Weitere Konfigurationsoptionen nach  Anforderungen
 }
 
 # Security Group (ECS-Service-Zugriff steuern)
@@ -201,8 +201,7 @@ resource "aws_security_group" "frontend_security_group" {
   name_prefix = "frontend-security-group"
   vpc_id = aws_vpc.my_vpc.id
 
-  # Konfigurieren Sie hier die Regeln, um den Zugriff auf Ihre Container zu steuern
-  # Beispiel: Erlauben von Port 80
+  # Konfigurieren Regeln, um den Zugriff auf Container zu steuern
   ingress {
     from_port   = 80
     to_port     = 80
@@ -210,7 +209,7 @@ resource "aws_security_group" "frontend_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Weitere Regeln je nach Ihren Anforderungen
+  # Weitere Regeln je nach Anforderungen
 }
 
 data "aws_caller_identity" "current" {}
@@ -239,3 +238,5 @@ resource "null_resource" "docker_packaging" {
     aws_ecr_repository.frontend_ecr_repo,
   ]
 }
+
+
