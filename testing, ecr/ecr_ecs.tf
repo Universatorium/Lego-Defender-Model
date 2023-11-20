@@ -182,19 +182,59 @@ resource "aws_ecs_cluster" "frontend_cluster" {
   name = "frontend-ecs-cluster"
 }
 
-# ECS Service (Fargate oder EC2, je nach Ihren Anforderungen)
+# ECS Service (Fargate)
 resource "aws_ecs_service" "frontend_service" {
   name            = "frontend-ecs-service"
   cluster         = aws_ecs_cluster.frontend_cluster.id
   task_definition = aws_ecs_task_definition.frontend_task_definition.arn
-  launch_type     = "FARGATE"  # Oder "EC2" je nach Bedarf
+  launch_type     = "FARGATE"
+
+  # Anzahl der Aufgaben (Container) beim Start
+  desired_count   = 2
+
   network_configuration {
-    subnets = [aws_subnet.public_subnet1a.id, aws_subnet.public_subnet1b.id]
+    subnets         = [aws_subnet.public_subnet1a.id, aws_subnet.public_subnet1b.id]
     security_groups = [aws_security_group.frontend_security_group.id]
   }
 
-  # Weitere Konfigurationsoptionen je nach Ihren Anforderungen
+  load_balancer {
+    target_group_arn = aws_lb_target_group.frontend_target_group.arn
+    container_name   = "frontend-container"
+    container_port   = 80
+  }
+
+  depends_on = [aws_lb_listener.frontend_listener]
 }
+
+# Auto Scaling Policy
+resource "aws_appautoscaling_policy" "ecs_policy" {
+  name               = "scale-down"
+  policy_type        = "StepScaling"
+  resource_id        = aws_appautoscaling_target.frontend_scaling_target.resource_id
+  scalable_dimension = aws_appautoscaling_target.frontend_scaling_target.scalable_dimension
+  service_namespace  = aws_appautoscaling_target.frontend_scaling_target.service_namespace
+
+  step_scaling_policy_configuration {
+    adjustment_type         = "ChangeInCapacity"
+    cooldown                = 60
+    metric_aggregation_type = "Maximum"
+
+    step_adjustment {
+      metric_interval_upper_bound = 0
+      scaling_adjustment          = -1
+    }
+  }
+}
+
+# Auto Scaling Target
+resource "aws_appautoscaling_target" "frontend_scaling_target" {
+  max_capacity       = 3
+  min_capacity       = 1
+  resource_id        = aws_ecs_service.frontend_service.name
+  scalable_dimension = "ecs:service:DesiredCount"
+  service_namespace  = "ecs"
+}
+
 
 # Security Group (ECS-Service-Zugriff steuern)
 resource "aws_security_group" "frontend_security_group" {
@@ -225,8 +265,8 @@ resource "null_resource" "docker_packaging" {
   provisioner "local-exec" {
     command = <<EOF
       aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-central-1.amazonaws.com
-      docker build -t frontend-ecr-repo .
-      docker tag frontend-ecr-repo:latest ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
+      # docker build -t frontend-ecr-repo .
+      # docker tag frontend-ecr-repo:latest ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
       docker push ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
     EOF
   }
@@ -238,4 +278,78 @@ resource "null_resource" "docker_packaging" {
   depends_on = [
     aws_ecr_repository.frontend_ecr_repo,
   ]
+}
+
+
+######################################## ELB Auto scaling ########################
+
+# Load Balancer
+resource "aws_lb" "frontend_lb" {
+  name               = "frontend-lb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.frontend_security_group.id]
+  subnets            = [aws_subnet.public_subnet1a.id, aws_subnet.public_subnet1b.id]
+
+  enable_deletion_protection = false  # Setze auf "true", fuer Löschschutz 
+
+  enable_http2 = true  # Optional: HTTP/2 aktivieren
+}
+
+# ...
+
+# Target Group
+resource "aws_lb_target_group" "frontend_target_group" {
+  name     = "frontend-target-group"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = aws_vpc.my_vpc.id
+
+  health_check {
+    path     = "/"
+    port     = "80"
+    protocol = "HTTP"
+  }
+
+  target_type = "ip"  # Setze den Zieltyp auf "ip" für Fargate
+}
+
+# Listener
+resource "aws_lb_listener" "frontend_listener" {
+  load_balancer_arn = aws_lb.frontend_lb.arn
+  port              = 80
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.frontend_target_group.arn
+  }
+}
+
+
+# Launch Template für Fargate
+resource "aws_launch_template" "frontend_launch_template" {
+  name_prefix = "frontend-launch-template"
+
+  block_device_mappings {
+    device_name = "/dev/xvda"
+    ebs {
+      volume_size = 30
+    }
+  }
+
+  capacity_reservation_specification {
+    capacity_reservation_preference = "open"
+  }
+
+  network_interfaces {
+    associate_public_ip_address = true
+  }
+
+  tag_specifications {
+    resource_type = "instance"
+    tags = {
+      Name = "frontend-fargate-instance"
+    }
+  }
 }
