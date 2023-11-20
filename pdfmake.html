@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -171,3 +172,209 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Rover Defender Konfiguration</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #35c035;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .generate-button {
+            background-color: #35c035;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .generate-button:hover {
+            background-color: #131313; 
+        }
+
+        .contact-details {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .contact-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Land Rover Defender Konfiguration</h1>
+        <p>Konfigurieren Sie Ihren eigenen Land Rover Defender nach Ihren Wünschen!</p>
+        <button class="generate-button" onclick="generateConfigPDF()">PDF Erstellen und Herunterladen</button>
+    </div>
+
+    <script>
+        function createAccessoriesList(accessories) {
+            const accessoryList = [];
+
+            accessories.forEach((accessory, index) => {
+                accessoryList.push(`${index + 1}. ${accessory}`);
+            });
+
+            return accessoryList.join('\n');
+        }
+
+        function imageToBase64(imagePath) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'Anonymous';
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0, img.width, img.height);
+                    const dataURL = canvas.toDataURL('image/jpeg');
+                    resolve(dataURL);
+                };
+                img.onerror = reject;
+                img.src = imagePath;
+            });
+        }
+
+        async function createLandRoverConfigTemplate(config, buyerName, companyName, companyLogoUrl, totalCost, carImagePath, contactDetails) {
+            const { model, color, engine, accessories } = config;
+
+            try {
+                // Konvertiere das Firmenlogo in Base64
+                const companyLogoBase64 = await imageToBase64(companyLogoUrl);
+
+                // Konvertiere das Auto-Bild in Base64
+                const carImageBase64 = await imageToBase64(carImagePath);
+
+                const documentDefinition = {
+                    content: [
+                        {
+                            columns: [
+                                {
+                                    stack: [
+                                        { text: companyName, style: 'companyName' },
+                                        { text: 'Kontaktinformationen:', style: 'subheader', margin: [0, 10], alignment: 'left' },
+                                        {
+                                            text: contactDetails.map(detail => detail.label + ': ' + detail.value).join('\n'),
+                                            style: 'contactDetails',
+                                            alignment: 'left',
+                                        },
+                                    ],
+                                    width: '*',
+                                },
+                                { image: companyLogoBase64, fit: [100, 100], alignment: 'right' },
+                            ],
+                        },
+                        { canvas: [{ type: 'line', x1: 0, y1: 0, x2: 520, y2: 0, lineWidth: 2, lineColor: '#35c035' }], margin: [0, 10] },
+                        '\n\n',
+                        {
+                            columns: [
+                                {
+                                    stack: [
+                                        { text: 'Land Rover Defender Konfiguration', style: 'header' },
+                                        { text: 'Modell:', style: 'subheader' },
+                                        { text: model, margin: [0, 0, 0, 10] },
+                                        { text: 'Farbe:', style: 'subheader' },
+                                        { text: color, margin: [0, 0, 0, 10] },
+                                        { text: 'Motor:', style: 'subheader' },
+                                        { text: engine, margin: [0, 0, 0, 20] },
+                                        { text: 'Zusätzliche Ausstattung:', style: 'subheader' },
+                                        { text: createAccessoriesList(accessories), margin: [0, 0, 0, 20] },
+                                        { text: 'Name des Käufers:', style: 'subheader' },
+                                        { text: buyerName, margin: [0, 0, 0, 10] },
+                                        { text: 'Gesamtsumme:', style: 'subheader' },
+                                        { text: totalCost + ' €', margin: [0, 0, 0, 10] },
+                                    ],
+                                    width: '*',
+                                },
+                                { image: carImageBase64, fit: [200, 100], alignment: 'right', margin: [0, 20] },
+                            ],
+                        },
+                    ],
+                    styles: {
+                        header: { fontSize: 18, bold: true, color: '#35c035', alignment: 'left', margin: [0, 10, 0, 20] },
+                        subheader: { fontSize: 14, bold: true, margin: [0, 10, 0, 5] },
+                        companyName: { fontSize: 20, bold: true, color: '#35c035', alignment: 'left', margin: [0, 0, 0, 10] },
+                        contactDetails: { fontSize: 12, margin: [0, 0, 0, 10] },
+                    },
+                };
+
+                return pdfMake.createPdf(documentDefinition);
+            } catch (error) {
+                console.error('Error creating PDF:', error);
+                throw error;
+            }
+        }
+
+        async function generateConfigPDF() {
+            try {
+                const landRoverConfig = {
+                    model: 'Defender 110',
+                    color: 'Santorini Black',
+                    engine: '3.0L V6 Diesel',
+                    accessories: ['Off-Road Package', 'Roof Rack', 'Winch', 'Snorkel'],
+                };
+
+                const buyerName = 'Max Mustermann';
+                const companyName = 'Reinlunzen GmbH';
+                const contactDetails = [
+                    { label: 'Ansprechpartner', value: 'Max Reinlunzen' },
+                    { label: 'Telefon', value: '0190-666-6666' },
+                    { label: 'Email', value: 'max.reinlunzen@example.com' },
+                    { label: 'Website', value: 'www.example.al' },
+                ];
+
+                const companyLogoUrl = 'Bild/Logo.png';
+                const carImagePath = 'Bild/range-rover-2015643_1280.jpg';
+
+                const totalCost = 50000;
+
+                const pdfDoc = await createLandRoverConfigTemplate(landRoverConfig, buyerName, companyName, companyLogoUrl, totalCost, carImagePath, contactDetails);
+
+                pdfDoc.getBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.target = '_blank';
+                    link.download = 'LandRoverConfig.pdf';
+                    link.innerText = 'PDF Herunterladen';
+
+                    link.click();
+
+                    URL.revokeObjectURL(url);
+                });
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+            }
+        }
+    </script>
+</body>
+</html>
+>>>>>>> Stashed changes
