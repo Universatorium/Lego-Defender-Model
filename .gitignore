@@ -33,3 +33,10 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# vscode
+.vscode/
+
+#terraform
+.terraform/
+terraform.tfstate
