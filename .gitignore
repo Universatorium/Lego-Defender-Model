@@ -40,3 +40,6 @@ yarn-error.*
 #terraform
 .terraform/
 terraform.tfstate
+
+# misc
+Userpool.js

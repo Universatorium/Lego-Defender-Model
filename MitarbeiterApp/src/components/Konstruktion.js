@@ -9,7 +9,7 @@ import {
     ScrollView,
     ImageBackground,
 } from "react-native";
-import dummydataKonstruktion from "./dummydataKonstruktion.json";
+import dummydataKonstruktion from "../dummydataKonstruktion.json";
 
 const getDataFromFertigungsliste = () => {
     //Abfrage an die Datenbank anstatt dummydataKonstruktion

@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View, StatusBar } from "react-native";
-import QRKonstruktion from "./src/components/QR-Scanner-Konstruktion";
+// import QRKonstruktion from "./src/components/QR-Scanner-Konstruktion";
 import Login from "./src/components/Login";
+import { Account } from "./src/Account";
 
 export default function App() {
     return (
         <View style={styles.container}>
-            {/* <QRKonstruktion /> */}
-            <Login />
-            {/* <StatusBar style="auto" /> */}
+            <Account>
+                <Login />
+            </Account>
         </View>
     );
 }

@@ -8,7 +8,7 @@ import {
     StatusBar,
     ScrollView,
 } from "react-native";
-import dummydata from "./dummydata.json";
+import dummydata from "../dummydata.json";
 
 export default function LagerUebersicht() {
     return (

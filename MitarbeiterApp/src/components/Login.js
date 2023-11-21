@@ -7,12 +7,38 @@ import {
     TextInput,
 } from "react-native";
 import LagerUebersicht from "./LagerUebersicht";
+import { Account, AccountContext } from "./Account";
 
 export default function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [mitarbeiter, setMitarbeiter] = useState(false);
-    const loginFunction = () => {
-        alert("Login");
-        setMitarbeiter("Lager");
+
+    const { authenticate } = useContext(AccountContext);
+
+    const loginFunction = (event) => {
+        console.log("Button pressed");
+        event.preventDefault();
+
+        authenticate(email, password)
+            .then((data) => {
+                console.log("Logged in!", data);
+                const accessToken = data.accessToken;
+                if (
+                    accessToken &&
+                    accessToken.payload["cognito:groups"] == "Lager"
+                ) {
+                    setMitarbeiter("Lager");
+                } else if (
+                    accessToken &&
+                    accessToken.payload["cognito:groups"] == "Konstruktion"
+                ) {
+                    setMitarbeiter("Konstruktion");
+                }
+            })
+            .catch((err) => {
+                console.error("Failed to login", err);
+            });
     };
     return (
         <SafeAreaView style={styles.safeContainer}>
@@ -21,7 +47,7 @@ export default function Login() {
                     <View>
                         <TextInput
                             style={styles.input}
-                            placeholder="Mitarbeiter ID"
+                            placeholder="Mitarbeiter Email"
                             placeholderTextColor="#ddd"
                         />
                         <TextInput
