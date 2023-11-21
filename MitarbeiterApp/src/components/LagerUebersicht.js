@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: "row",
-        width: 100, // adjust this value as needed
+        width: 100,
     },
     button: {
         backgroundColor: "#181818",

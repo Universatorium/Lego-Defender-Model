@@ -20,30 +20,25 @@ const handleHinzufuegen = () => {
 
 export default function FertigungsListe() {
     return (
-        <ImageBackground
-            source={require("./assets/landrover_vfs.jpg")}
-            style={styles.backgroundImage}
-        >
-            <SafeAreaView style={styles.container}>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={handleHinzufuegen}
-                    >
-                        <Text style={styles.buttonText}>hinzufügen</Text>
-                    </TouchableOpacity>
-                </View>
-                <ScrollView style={styles.liste}>
-                    {dummydataKonstruktion.map((item, index) => (
-                        <View key={index} style={styles.row}>
-                            <Text style={styles.cell}>{item.id}</Text>
-                            <Text style={styles.cell}>{item.title}</Text>
-                            <Text style={styles.cell}>{item.description}</Text>
-                        </View>
-                    ))}
-                </ScrollView>
-            </SafeAreaView>
-        </ImageBackground>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={handleHinzufuegen}
+                >
+                    <Text style={styles.buttonText}>hinzufügen</Text>
+                </TouchableOpacity>
+            </View>
+            <ScrollView style={styles.liste}>
+                {dummydataKonstruktion.map((item, index) => (
+                    <View key={index} style={styles.row}>
+                        <Text style={styles.cell}>{item.id}</Text>
+                        <Text style={styles.cell}>{item.title}</Text>
+                        <Text style={styles.cell}>{item.description}</Text>
+                    </View>
+                ))}
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
@@ -93,10 +88,5 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: "bold",
         fontSize: 25,
-    },
-    backgroundImage: {
-        flex: 1,
-        opacity: 0.8,
-        resizeMode: "cover",
     },
 });

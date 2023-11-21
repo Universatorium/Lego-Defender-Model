@@ -5,8 +5,10 @@ import {
     Button,
     SafeAreaView,
     TextInput,
+    ImageBackground,
 } from "react-native";
 import LagerUebersicht from "./LagerUebersicht";
+import FertigungsListe from "./Konstruktion";
 import { Account, AccountContext } from "./Account";
 
 export default function Login() {
@@ -22,16 +24,20 @@ export default function Login() {
 
         authenticate(email, password)
             .then((data) => {
-                console.log("Logged in!", data);
+                // console.log("Logged in!", data);
                 const accessToken = data.accessToken;
+                console.log(
+                    "Mitarbeiterrolle: ",
+                    accessToken.payload["cognito:groups"][0]
+                );
                 if (
                     accessToken &&
-                    accessToken.payload["cognito:groups"] == "Lager"
+                    accessToken.payload["cognito:groups"][0] === "Lager"
                 ) {
                     setMitarbeiter("Lager");
                 } else if (
                     accessToken &&
-                    accessToken.payload["cognito:groups"] == "Konstruktion"
+                    accessToken.payload["cognito:groups"][0] === "Konstruktion"
                 ) {
                     setMitarbeiter("Konstruktion");
                 }
@@ -40,30 +46,56 @@ export default function Login() {
                 console.error("Failed to login", err);
             });
     };
+    const logoutFunction = (event) => {
+        console.log("Button pressed");
+        event.preventDefault();
+        setMitarbeiter(false);
+    };
     return (
-        <SafeAreaView style={styles.safeContainer}>
-            <View style={styles.container}>
-                {!mitarbeiter && (
-                    <View>
-                        <TextInput
-                            onChangeText={(text) => setEmail(text)}
-                            style={styles.input}
-                            placeholder="Mitarbeiter Email"
-                            placeholderTextColor="#ddd"
-                        />
-                        <TextInput
-                            onChangeText={(text) => setPassword(text)}
-                            style={styles.input}
-                            placeholder="Passwort"
-                            placeholderTextColor="#ddd"
-                        />
-                        <Button title="Login" onPress={loginFunction} />
-                    </View>
-                )}
-                {mitarbeiter === "Lager" && <LagerUebersicht />}
-                {mitarbeiter === "Konstruktion" && <Konstruktion />}
-            </View>
-        </SafeAreaView>
+        <ImageBackground
+            source={require("../../assets/landrover_vfs.jpg")}
+            style={styles.backgroundImage}
+        >
+            <SafeAreaView style={styles.safeContainer}>
+                <View>
+                    {!mitarbeiter && (
+                        <View style={styles.container}>
+                            <TextInput
+                                onChangeText={(text) => setEmail(text)}
+                                style={styles.input}
+                                placeholder="Mitarbeiter Email"
+                                placeholderTextColor="#ddd"
+                            />
+                            <TextInput
+                                onChangeText={(text) => setPassword(text)}
+                                style={styles.input}
+                                placeholder="Passwort"
+                                placeholderTextColor="#ddd"
+                            />
+                            <Button title="Login" onPress={loginFunction} />
+                        </View>
+                    )}
+                    {mitarbeiter === "Lager" && (
+                        <View>
+                            <Button
+                                title="Logout"
+                                onPress={logoutFunction}
+                            ></Button>
+                            <LagerUebersicht />
+                        </View>
+                    )}
+                    {mitarbeiter === "Konstruktion" && (
+                        <View>
+                            <Button
+                                title="Logout"
+                                onPress={logoutFunction}
+                            ></Button>
+                            <FertigungsListe />
+                        </View>
+                    )}
+                </View>
+            </SafeAreaView>
+        </ImageBackground>
     );
 }
 const styles = StyleSheet.create({
@@ -86,5 +118,10 @@ const styles = StyleSheet.create({
         borderColor: "#ddd",
         padding: 10,
         color: "#ddd",
+    },
+    backgroundImage: {
+        flex: 1,
+        opacity: 0.8,
+        resizeMode: "cover",
     },
 });

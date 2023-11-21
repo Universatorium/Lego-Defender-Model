@@ -60,9 +60,9 @@ const Account = (props) => {
                     reject(err);
                     failAlert();
                 },
-                newPasswordRequired: (data) => {
-                    console.log("newPasswordRequired: ", data);
-                    resolve(data);
+                newPasswordRequired: (userAttributes, requiredAttributes) => {
+                    console.log("newPasswordRequired: ", userAttributes);
+                    resolve(accessToken);
                 },
             });
         });
