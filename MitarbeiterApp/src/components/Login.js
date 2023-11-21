@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
     View,
     StyleSheet,
@@ -46,11 +46,13 @@ export default function Login() {
                 {!mitarbeiter && (
                     <View>
                         <TextInput
+                            onChangeText={(text) => setEmail(text)}
                             style={styles.input}
                             placeholder="Mitarbeiter Email"
                             placeholderTextColor="#ddd"
                         />
                         <TextInput
+                            onChangeText={(text) => setPassword(text)}
                             style={styles.input}
                             placeholder="Passwort"
                             placeholderTextColor="#ddd"

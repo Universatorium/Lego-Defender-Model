@@ -1,7 +1,7 @@
+// Übersicht der App
 import { StyleSheet, Text, View, StatusBar } from "react-native";
-// import QRKonstruktion from "./src/components/QR-Scanner-Konstruktion";
 import Login from "./src/components/Login";
-import { Account } from "./src/Account";
+import { Account } from "./src/components/Account";
 
 export default function App() {
     return (
