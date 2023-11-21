@@ -6,6 +6,9 @@ import {
     SafeAreaView,
     TextInput,
     ImageBackground,
+    StatusBar,
+    TouchableOpacity,
+    Text,
 } from "react-native";
 import LagerUebersicht from "./LagerUebersicht";
 import FertigungsListe from "./Konstruktion";
@@ -17,6 +20,7 @@ export default function Login() {
     const [mitarbeiter, setMitarbeiter] = useState(false);
 
     const { authenticate } = useContext(AccountContext);
+    const { logout } = useContext(AccountContext);
 
     const loginFunction = (event) => {
         console.log("Button pressed");
@@ -47,8 +51,9 @@ export default function Login() {
             });
     };
     const logoutFunction = (event) => {
-        console.log("Button pressed");
+        console.log("logged out!");
         event.preventDefault();
+        logout();
         setMitarbeiter(false);
     };
     return (
@@ -57,9 +62,9 @@ export default function Login() {
             style={styles.backgroundImage}
         >
             <SafeAreaView style={styles.safeContainer}>
-                <View>
+                <View style={styles.container}>
                     {!mitarbeiter && (
-                        <View style={styles.container}>
+                        <View style={styles.loginContainer}>
                             <TextInput
                                 onChangeText={(text) => setEmail(text)}
                                 style={styles.input}
@@ -72,24 +77,37 @@ export default function Login() {
                                 placeholder="Passwort"
                                 placeholderTextColor="#ddd"
                             />
-                            <Button title="Login" onPress={loginFunction} />
+                            <TouchableOpacity
+                                style={styles.button}
+                                onPress={loginFunction}
+                            >
+                                <Text style={styles.buttonText}>Login</Text>
+                            </TouchableOpacity>
                         </View>
                     )}
                     {mitarbeiter === "Lager" && (
-                        <View>
-                            <Button
-                                title="Logout"
-                                onPress={logoutFunction}
-                            ></Button>
+                        <View style={styles.loginContainer}>
+                            <View>
+                                <TouchableOpacity
+                                    style={styles.button}
+                                    onPress={logoutFunction}
+                                >
+                                    <Text style={styles.buttonText}>
+                                        Logout
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
                             <LagerUebersicht />
                         </View>
                     )}
                     {mitarbeiter === "Konstruktion" && (
-                        <View>
-                            <Button
-                                title="Logout"
+                        <View style={styles.loginContainer}>
+                            <TouchableOpacity
+                                style={styles.button}
                                 onPress={logoutFunction}
-                            ></Button>
+                            >
+                                <Text style={styles.buttonText}>Logout</Text>
+                            </TouchableOpacity>
                             <FertigungsListe />
                         </View>
                     )}
@@ -104,12 +122,22 @@ const styles = StyleSheet.create({
         backgroundColor: "#181818",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: StatusBar.currentHeight,
+        opacity: 0.8,
     },
     container: {
-        width: "80%",
+        // width: "80",
         backgroundColor: "#181818",
         borderWidth: 1,
         borderColor: "#ddd",
+    },
+    loginContainer: {
+        backgroundColor: "#181818",
+        justifyContent: "center",
+        alignItems: "center",
+        // marginVertical: 10,
+        paddingVertical: 10,
+        opacity: 0.8,
     },
     input: {
         height: 40,
@@ -123,5 +151,25 @@ const styles = StyleSheet.create({
         flex: 1,
         opacity: 0.8,
         resizeMode: "cover",
+    },
+    buttonContainer: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        marginVertical: 10,
+        backgroundColor: "#181818",
+        maxWidth: "95%",
+    },
+    button: {
+        backgroundColor: "#181818",
+        borderColor: "#ddd",
+        borderWidth: 2,
+        padding: 10,
+        borderRadius: 5,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    buttonText: {
+        color: "#ddd",
+        fontSize: 25,
     },
 });
