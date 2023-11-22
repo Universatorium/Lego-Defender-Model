@@ -10,16 +10,6 @@
         "kommentar": "ServiceProdukte"
     },
     {
-        "ID-Lager": 2,
-        "name": "ueberfuehrung",
-        "beschreibung": "Überführungskosten",
-        "S3-bild-url": "https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg",
-        "anzahl": 0,
-        "farbe": "",
-        "preis": 260.00,
-        "kommentar": "ServiceProdukte"
-    },
-    {
         "ID-Lager": 3,
         "name": "kfz_versicherung",
         "beschreibung": "KFZ-Versicherung 2 Jahre",
