@@ -20,12 +20,17 @@ export default function LagerUebersicht() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log('Vor dem Aufruf von getLagerBestand');
         const data = await getLagerBestand();
+        console.log('Datenpunkte:', lagerBestaende);
+
+        console.log('Nach dem Aufruf von getLagerBestand:', data);
         setLagerBestaende(data || []); // Setze den Zustand mit den abgerufenen Daten
       } catch (error) {
         console.error('Fehler beim Abrufen der Lagerbestände:', error);
       }
     };
+    console.log('Einzelner Datenpunkt:', lagerBestaende[0]);
 
     fetchData(); // Funktionsaufruf beim Mounten der Komponente
   }, []);
@@ -54,13 +59,21 @@ export default function LagerUebersicht() {
             <Text style={styles.buttonText}>-</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.row}>
+          <Text style={styles.cell}>Lager-ID</Text>
+          <Text style={styles.cell}>Name</Text>
+          <Text style={styles.cell}>Farbe</Text>
+        </View>
         <ScrollView>
           {lagerBestaende.map((item, index) => (
             <View key={index} style={styles.row}>
-              <Text style={styles.cell}>{item.ID-Kunde}</Text>
-              <Text style={styles.cell}>{item.Vorname}</Text>
-              <Text style={styles.cell}>{item.Telefon}</Text>
-            </View>
+            {item.map((value, subIndex) => (
+  <Text key={subIndex} style={styles.cell}>
+    {value && value.N ? value.N : value && value.S ? value.S : ""}
+  </Text>
+))}
+
+  </View>
           ))}
         </ScrollView>
       </SafeAreaView>
@@ -90,7 +103,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
-
     color: "#ddd",
   },
   buttonContainer: {
