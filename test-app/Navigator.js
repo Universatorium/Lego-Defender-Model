@@ -5,25 +5,11 @@ import { View, TouchableOpacity, Text, ImageBackground, StyleSheet } from 'react
 import Header from './components/Header';
 import LagerUebersicht from './LagerUebersicht';
 import QRScannerKonstruktion from './QRScannerKonstruktion';
-import { DynamoDB } from 'aws-sdk';
+import { getLagerBestand } from './api'; // Ändere den Import
 
 const Stack = createStackNavigator();
 // Funktion zum Abrufen des Lagerbestands aus der DynamoDB-Tabelle
-const getLagerBestand = async () => {
-  const dynamoDB = new DynamoDB();
-  const params = {
-    TableName: 'Lager', // Ersetze 'DeineTabelleName' durch den tatsächlichen Tabellennamen
-  };
 
-  try {
-    const data = await dynamoDB.scan(params).promise();
-    // Hier die Liste der Lagerbestände aus dem Datenobjekt extrahieren und zurückgeben
-    return data.Items.map(item => item.lagerBestand.N); // 'N' steht für den Datenformat-Code für eine Zahl
-  } catch (error) {
-    console.error('Fehler beim Abrufen des Lagerbestands:', error);
-    return null;
-  }
-};
 
 const HomeScreen = ({ navigation }) => {
   const handleButton1Press = async () => {

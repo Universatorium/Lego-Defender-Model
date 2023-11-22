@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -9,21 +9,37 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-import dummydata from "./components/dummydata.json";
-import { useNavigation } from '@react-navigation/native'; // Import der useNavigation-Hook
+import { useNavigation } from '@react-navigation/native';
+import { getLagerBestand } from './api'; // Stelle sicher, dass du den korrekten Pfad verwendest
 
 export default function LagerUebersicht() {
-  const navigation = useNavigation(); // Verwendung der useNavigation-Hook
+  const navigation = useNavigation();
+  const [lagerBestaende, setLagerBestaende] = useState([]); // Zustand für Lagerbestände
+
+  // Verwende useEffect, um die Daten beim Laden der Komponente zu holen
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getLagerBestand();
+        setLagerBestaende(data || []); // Setze den Zustand mit den abgerufenen Daten
+      } catch (error) {
+        console.error('Fehler beim Abrufen der Lagerbestände:', error);
+      }
+    };
+
+    fetchData(); // Funktionsaufruf beim Mounten der Komponente
+  }, []);
 
   const handlePlusPress = () => {
     console.log('Button QR-Scanner wurde gedrückt');
     navigation.navigate('QRScannerKonstruktion');
   };
+
   const handleMinusPress = () => {
     console.log('Button QR-Scanner wurde gedrückt');
     navigation.navigate('QRScannerKonstruktion');
   };
-  
+
   return (
     <ImageBackground
       source={require("test-app/assets/landrover_vfs.jpg")}
@@ -39,11 +55,11 @@ export default function LagerUebersicht() {
           </TouchableOpacity>
         </View>
         <ScrollView>
-          {dummydata.map((item, index) => (
+          {lagerBestaende.map((item, index) => (
             <View key={index} style={styles.row}>
-              <Text style={styles.cell}>{item.id}</Text>
-              <Text style={styles.cell}>{item.title}</Text>
-              <Text style={styles.cell}>{item.amount}</Text>
+              <Text style={styles.cell}>{item.ID-Kunde}</Text>
+              <Text style={styles.cell}>{item.Vorname}</Text>
+              <Text style={styles.cell}>{item.Telefon}</Text>
             </View>
           ))}
         </ScrollView>
