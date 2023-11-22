@@ -19,17 +19,17 @@ export default function LagerUebersicht() {
                         <Text style={styles.cell}>{item.id}</Text>
                         <Text style={styles.cell}>{item.title}</Text>
                         <Text style={styles.cell}>{item.amount}</Text>
-                        <View style={styles.buttonContainer}>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.buttonText}>+</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.buttonText}>-</Text>
-                            </TouchableOpacity>
-                        </View>
                     </View>
                 ))}
             </ScrollView>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>hinzufügen</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>entfernen</Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     );
 }
@@ -39,23 +39,26 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         backgroundColor: "#181818",
+        minWidth: 300,
     },
     row: {
         flexDirection: "row",
         borderBottomWidth: 1,
         borderBottomColor: "#ddd",
+        justifyContent: "center",
+        alignItems: "center",
     },
     cell: {
         minWidth: 70,
         justifyContent: "center",
         alignItems: "center",
         padding: 10,
-
         color: "#ddd",
     },
     buttonContainer: {
         flexDirection: "row",
-        width: 100,
+        justifyContent: "center",
+        alignItems: "center",
     },
     button: {
         backgroundColor: "#181818",

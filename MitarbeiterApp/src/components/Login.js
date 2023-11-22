@@ -126,16 +126,16 @@ const styles = StyleSheet.create({
         opacity: 0.8,
     },
     container: {
-        // width: "80",
         backgroundColor: "#181818",
         borderWidth: 1,
         borderColor: "#ddd",
+        maxHeight: "98%",
+        maxWidth: "95%",
     },
     loginContainer: {
         backgroundColor: "#181818",
         justifyContent: "center",
         alignItems: "center",
-        // marginVertical: 10,
         paddingVertical: 10,
         opacity: 0.8,
     },
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
         borderColor: "#ddd",
         padding: 10,
         color: "#ddd",
+        width: "90%",
     },
     backgroundImage: {
         flex: 1,

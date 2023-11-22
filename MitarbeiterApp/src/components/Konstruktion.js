@@ -26,7 +26,7 @@ export default function FertigungsListe() {
                     style={styles.button}
                     onPress={handleHinzufuegen}
                 >
-                    <Text style={styles.buttonText}>hinzufügen</Text>
+                    <Text style={styles.buttonText}>Teil einbauen</Text>
                 </TouchableOpacity>
             </View>
             <ScrollView style={styles.liste}>
