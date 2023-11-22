@@ -206,43 +206,38 @@ resource "aws_ecs_service" "frontend_service" {
   depends_on = [aws_lb_listener.frontend_listener]
 }
 
-# Auto Scaling Policy
-resource "aws_appautoscaling_policy" "ecs_policy" {
-  name               = "scale-down"
-  policy_type        = "StepScaling"
-  resource_id        = aws_appautoscaling_target.frontend_scaling_target.resource_id
-  scalable_dimension = aws_appautoscaling_target.frontend_scaling_target.scalable_dimension
-  service_namespace  = aws_appautoscaling_target.frontend_scaling_target.service_namespace
-
-  step_scaling_policy_configuration {
-    adjustment_type         = "ChangeInCapacity"
-    cooldown                = 60
-    metric_aggregation_type = "Maximum"
-
-    step_adjustment {
-      metric_interval_upper_bound = 0
-      scaling_adjustment          = -1
-    }
-  }
-}
-
 # Auto Scaling Target
 resource "aws_appautoscaling_target" "frontend_scaling_target" {
   max_capacity       = 3
   min_capacity       = 1
-  resource_id        = aws_ecs_service.frontend_service.name
+  resource_id        = "service/${aws_ecs_cluster.frontend_cluster.name}/${aws_ecs_service.frontend_service.name}"
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
 }
 
+# Auto Scaling Policy
+resource "aws_appautoscaling_policy" "ecs_policy" {
+  name               = "scale-up"
+  policy_type        = "TargetTrackingScaling"
+  resource_id        = aws_appautoscaling_target.frontend_scaling_target.resource_id
+  scalable_dimension = aws_appautoscaling_target.frontend_scaling_target.scalable_dimension
+  service_namespace  = aws_appautoscaling_target.frontend_scaling_target.service_namespace
+
+  target_tracking_scaling_policy_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ECSServiceAverageCPUUtilization"
+    }
+
+    target_value = 70.0  # Adjust this value based on your requirements
+  }
+}
 
 # Security Group (ECS-Service-Zugriff steuern)
 resource "aws_security_group" "frontend_security_group" {
   name_prefix = "frontend-security-group"
-  vpc_id = aws_vpc.my_vpc.id
+  vpc_id      = aws_vpc.my_vpc.id
 
-  # Konfigurieren Sie hier die Regeln, um den Zugriff auf Ihre Container zu steuern
-  # Beispiel: Erlauben von Port 80
+  # Ingress rule allowing traffic on port 80
   ingress {
     from_port   = 80
     to_port     = 80
@@ -250,8 +245,15 @@ resource "aws_security_group" "frontend_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Weitere Regeln je nach Ihren Anforderungen
+  # Egress rule allowing all outbound traffic
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
+
 
 data "aws_caller_identity" "current" {}
 
@@ -261,24 +263,26 @@ output "aws_account_id" {
 
 
 
-resource "null_resource" "docker_packaging" {
-  provisioner "local-exec" {
-    command = <<EOF
-      aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-central-1.amazonaws.com
-      docker build -t frontend-ecr-repo .
-      docker tag frontend-ecr-repo:latest ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
-      docker push ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
-    EOF
-  }
+# resource "null_resource" "docker_packaging" {
+#   provisioner "local-exec" {
+#     command = <<-EOF
+#       aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.eu-central-1.amazonaws.com &&
+#       docker build -t frontend-ecr-repo . &&
+#       docker tag frontend-ecr-repo:latest ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest &&
+#       docker push ${aws_ecr_repository.frontend_ecr_repo.repository_url}:latest
+#     EOF
+#   }
 
-  triggers = {
-    "run_at" = timestamp()
-  }
+#   triggers = {
+#     "run_at" = timestamp()
+#   }
 
-  depends_on = [
-    aws_ecr_repository.frontend_ecr_repo,
-  ]
-}
+#   depends_on = [
+#     aws_ecr_repository.frontend_ecr_repo,
+#   ]
+# }
+
+
 
 
 ######################################## ELB Auto scaling ########################
