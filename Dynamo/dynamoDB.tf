@@ -185,6 +185,7 @@ resource "null_resource" "invoke_lambda" {
     aws_dynamodb_table.auftrag,
     aws_dynamodb_table.fertigungsliste,
     aws_lambda_function.initialize_dynamodb,
+    aws_iam_role.lambda
   ]
 
   provisioner "local-exec" {
