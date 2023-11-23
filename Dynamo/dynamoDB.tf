@@ -122,10 +122,10 @@ resource "aws_lambda_permission" "allow_dynamodb_fertigungsliste" {
 resource "aws_dynamodb_table" "kunde" {
   name           = "Kunde"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "ID-Kunde"
+  hash_key       = "ID_Kunde"
 
   attribute {
-    name = "ID-Kunde"
+    name = "ID_Kunde"
     type = "N"
   }
 }
@@ -133,10 +133,10 @@ resource "aws_dynamodb_table" "kunde" {
 resource "aws_dynamodb_table" "mitarbeiter" {
   name           = "Mitarbeiter"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "ID-Mitarbeiter"
+  hash_key       = "ID_Mitarbeiter"
 
   attribute {
-    name = "ID-Mitarbeiter"
+    name = "ID_Mitarbeiter"
     type = "N"
   }
 
@@ -145,10 +145,10 @@ resource "aws_dynamodb_table" "mitarbeiter" {
 resource "aws_dynamodb_table" "lager" {
   name           = "Lager"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "ID-Lager"
+  hash_key       = "ID_Lager"
 
   attribute {
-    name = "ID-Lager"
+    name = "ID_Lager"
     type = "N"
   }
 }
@@ -156,10 +156,10 @@ resource "aws_dynamodb_table" "lager" {
 resource "aws_dynamodb_table" "auftrag" {
   name           = "Auftrag"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "ID-Auftrag"
+  hash_key       = "ID_Auftrag"
 
   attribute {
-    name = "ID-Auftrag"
+    name = "ID_Auftrag"
     type = "N"
   }
 }
@@ -167,10 +167,10 @@ resource "aws_dynamodb_table" "auftrag" {
 resource "aws_dynamodb_table" "fertigungsliste" {
   name           = "Fertigungsliste"
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "ID-Fertigungsliste"
+  hash_key       = "ID_Fertigungsliste"
 
   attribute {
-    name = "ID-Fertigungsliste"
+    name = "ID_Fertigungsliste"
     type = "N"
   }
 }
