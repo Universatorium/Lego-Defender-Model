@@ -32,6 +32,8 @@ export default function Login() {
                 } else if (accessToken && accessToken.payload['cognito:groups'] == "Kunde") {
                   setKunde(true);
                   navigate('/');
+                } else if (accessToken) {
+                  navigate('/');
                 }
           })
           .catch(err => {
