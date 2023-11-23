@@ -6,6 +6,8 @@ import Header from './components/Header';
 import LagerUebersicht from './LagerUebersicht';
 import QRScannerKonstruktion from './QRScannerKonstruktion';
 import { getLagerBestand } from './api'; // Ändere den Import
+import Detailseite from './components/Detailseite';
+
 
 const Stack = createStackNavigator();
 // Funktion zum Abrufen des Lagerbestands aus der DynamoDB-Tabelle
@@ -49,6 +51,7 @@ const Navigator = () => {
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="LagerUebersicht" component={LagerUebersicht} />
+      <Stack.Screen name="Detailseite" component={Detailseite} />
       <Stack.Screen name="QRScannerKonstruktion" component={QRScannerKonstruktion} />
     </Stack.Navigator>
   );

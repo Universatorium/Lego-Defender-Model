@@ -1,4 +1,3 @@
-//LagerUebersicht.js
 import React, { useState, useEffect } from "react";
 import {
   Text,
@@ -6,12 +5,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
-  StatusBar,
   ScrollView,
   ImageBackground,
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import { getLagerBestand, getDetailDaten } from './api'; // Stelle sicher, dass du den korrekten Pfad verwendest
+import { getLagerBestand } from './api'; // Stelle sicher, dass du den korrekten Pfad verwendest
 
 export default function LagerUebersicht() {
   const navigation = useNavigation();
@@ -31,6 +29,7 @@ export default function LagerUebersicht() {
         console.error('Fehler beim Abrufen der Lagerbestände:', error);
       }
     };
+    console.log('Einzelner Datenpunkt:', lagerBestaende[0]);
 
     fetchData(); // Funktionsaufruf beim Mounten der Komponente
   }, []);
@@ -44,24 +43,6 @@ export default function LagerUebersicht() {
     console.log('Button QR-Scanner wurde gedrückt');
     navigation.navigate('QRScannerKonstruktion');
   };
-
-// Eine neue Funktion, die aufgerufen wird, wenn eine Zeile geklickt wird
-const handleRowPress = async (rowData) => {
-    console.log("Zeile geklickt! Daten:", rowData);
-
-    try {
-      // Rufe zusätzliche Detaildaten von der API ab
-      const detailDaten = await getDetailDaten(rowData[0].N); // Annahme: Die ID ist der erste Wert in der Zeile
-      console.log("Zusätzliche Detaildaten:", detailDaten);
-
-      // Navigiere zur Detailseite und übergebe sowohl die Hauptdaten als auch die Detaildaten
-      navigation.navigate("Detailseite", { mainData: rowData, detailData: detailDaten });
-    } catch (error) {
-      console.error('Fehler beim Abrufen der Detaildaten:', error);
-    }
-  };
-
-
 
   return (
     <ImageBackground
@@ -84,27 +65,22 @@ const handleRowPress = async (rowData) => {
           <Text style={styles.ueberschrift}>Artikel</Text>
         </View>
         <ScrollView>
-        {lagerBestaende.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => handleRowPress(item)} // Hier wird die onPress-Funktion für die Zeile aufgerufen
-          >
-            <View style={styles.row}>
-              {item.map((value, subIndex) => (
-                <Text
-                  key={subIndex}
-                  style={[
-                    styles.cell,
-                    subIndex === 3 ? styles.rightAlignedCell : null,
-                  ]}
-                >
-                  {value && value.N ? value.N : value && value.S ? value.S : ""}
-                </Text>
-              ))}
-            </View>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+  {lagerBestaende.map((item, index) => (
+    <View key={index} style={styles.row}>
+      {item.map((value, subIndex) => (
+        <Text
+          key={subIndex}
+          style={[
+            styles.cell,
+            subIndex === 3 ? styles.rightAlignedCell : null,
+          ]}
+        >
+          {value && value.N ? value.N : value && value.S ? value.S : ""}
+        </Text>
+      ))}
+    </View>
+  ))}
+</ScrollView>
       </SafeAreaView>
     </ImageBackground>
   );
