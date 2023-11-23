@@ -1,3 +1,5 @@
 node_modules
-
+Dynamo/
+Dynamo/terraform.tfstate
+Dynamo/terraform.tfstate.backup
 api.js
