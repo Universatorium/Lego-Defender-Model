@@ -1,6 +1,6 @@
 [
     {
-        "ID-Kunde": 1,
+        "ID_Kunde": 1,
         "Email": "Hubert1@gmail.com",
         "Vorname": "Hubert",
         "Nachname": "Pouros",
@@ -8,7 +8,7 @@
         "Adresse": "7547 Schamberger Parkway"
     },
     {
-        "ID-Kunde": 2,
+        "ID_Kunde": 2,
         "Email": "Delbert_Prosacco@gmail.com",
         "Vorname": "Delbert",
         "Nachname": "Prosacco",
@@ -16,7 +16,7 @@
         "Adresse": "2030 Stacey Via"
     },
     {
-        "ID-Kunde": 3,
+        "ID_Kunde": 3,
         "Email": "Craig79@hotmail.com",
         "Vorname": "Craig",
         "Nachname": "Oberbrunner",
@@ -24,7 +24,7 @@
         "Adresse": "209 Freddie Plain"
     },
     {
-        "ID-Kunde": 4,
+        "ID_Kunde": 4,
         "Email": "Norman.Farrell-Bode21@gmail.com",
         "Vorname": "Norman",
         "Nachname": "Farrell-Bode",
@@ -32,7 +32,7 @@
         "Adresse": "66273 Nicolas Ridge"
     },
     {
-        "ID-Kunde": 5,
+        "ID_Kunde": 5,
         "Email": "Harold7@hotmail.com",
         "Vorname": "Harold",
         "Nachname": "Ratke",
@@ -40,7 +40,7 @@
         "Adresse": "807 Alexys Keys"
     },
     {
-        "ID-Kunde": 6,
+        "ID_Kunde": 6,
         "Email": "Jennie_Reichel@yahoo.com",
         "Vorname": "Jennie",
         "Nachname": "Reichel",
@@ -48,7 +48,7 @@
         "Adresse": "4411 Lucile Stravenue"
     },
     {
-        "ID-Kunde": 7,
+        "ID_Kunde": 7,
         "Email": "Beulah.Bergnaum-Rath42@gmail.com",
         "Vorname": "Beulah",
         "Nachname": "Bergnaum-Rath",
@@ -56,7 +56,7 @@
         "Adresse": "61157 Jacobson Mount"
     },
     {
-        "ID-Kunde": 8,
+        "ID_Kunde": 8,
         "Email": "Christopher_Larson42@gmail.com",
         "Vorname": "Christopher",
         "Nachname": "Larson",
@@ -64,7 +64,7 @@
         "Adresse": "23577 Keeling Shores"
     },
     {
-        "ID-Kunde": 9,
+        "ID_Kunde": 9,
         "Email": "Todd17@yahoo.com",
         "Vorname": "Todd",
         "Nachname": "Robel",
@@ -72,7 +72,7 @@
         "Adresse": "2320 Gerda Corners"
     },
     {
-        "ID-Kunde": 10,
+        "ID_Kunde": 10,
         "Email": "Brittany_Jaskolski93@gmail.com",
         "Vorname": "Brittany",
         "Nachname": "Jaskolski",
@@ -80,7 +80,7 @@
         "Adresse": "8108 Daryl Bypass"
     },
     {
-        "ID-Kunde": 11,
+        "ID_Kunde": 11,
         "Email": "Mary.Hamill1@yahoo.com",
         "Vorname": "Mary",
         "Nachname": "Hamill",
@@ -88,7 +88,7 @@
         "Adresse": "3111 Foster Heights"
     },
     {
-        "ID-Kunde": 12,
+        "ID_Kunde": 12,
         "Email": "Calvin35@hotmail.com",
         "Vorname": "Calvin",
         "Nachname": "Fadel-Larson",
@@ -96,7 +96,7 @@
         "Adresse": "5442 Neva Lodge"
     },
     {
-        "ID-Kunde": 13,
+        "ID_Kunde": 13,
         "Email": "Doreen.Mills32@hotmail.com",
         "Vorname": "Doreen",
         "Nachname": "Mills",
@@ -104,7 +104,7 @@
         "Adresse": "54728 Kaylie Landing"
     },
     {
-        "ID-Kunde": 14,
+        "ID_Kunde": 14,
         "Email": "Sara_Balistreri26@hotmail.com",
         "Vorname": "Sara",
         "Nachname": "Balistreri",
@@ -112,7 +112,7 @@
         "Adresse": "38810 Monroe Views"
     },
     {
-        "ID-Kunde": 15,
+        "ID_Kunde": 15,
         "Email": "Ken.Rodriguez91@gmail.com",
         "Vorname": "Ken",
         "Nachname": "Rodriguez",
@@ -120,7 +120,7 @@
         "Adresse": "97796 Vicky Skyway"
     },
     {
-        "ID-Kunde": 16,
+        "ID_Kunde": 16,
         "Email": "Clarence_Effertz24@hotmail.com",
         "Vorname": "Clarence",
         "Nachname": "Effertz",
@@ -128,7 +128,7 @@
         "Adresse": "5756 Blanda Bridge"
     },
     {
-        "ID-Kunde": 17,
+        "ID_Kunde": 17,
         "Email": "Jody_OConner@gmail.com",
         "Vorname": "Jody",
         "Nachname": "O'Conner",
@@ -136,7 +136,7 @@
         "Adresse": "994 Erdman Meadow"
     },
     {
-        "ID-Kunde": 18,
+        "ID_Kunde": 18,
         "Email": "Mable.Cruickshank@gmail.com",
         "Vorname": "Mable",
         "Nachname": "Cruickshank",
@@ -144,7 +144,7 @@
         "Adresse": "5779 Bogan Trafficway"
     },
     {
-        "ID-Kunde": 19,
+        "ID_Kunde": 19,
         "Email": "Gloria97@yahoo.com",
         "Vorname": "Gloria",
         "Nachname": "Wisozk",
@@ -152,7 +152,7 @@
         "Adresse": "7328 Cloyd Freeway"
     },
     {
-        "ID-Kunde": 20,
+        "ID_Kunde": 20,
         "Email": "Raquel39@gmail.com",
         "Vorname": "Raquel",
         "Nachname": "Stark",
