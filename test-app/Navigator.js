@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { View, TouchableOpacity, Text, ImageBackground, StyleSheet } from 'react-native';
 import Header from './components/Header';
 import LagerUebersicht from './LagerUebersicht';
-import QRScannerKonstruktion from './QRScannerKonstruktion';
+import QRScannerKonstruktion from './components/QRScannerKonstruktion';
 import { getLagerBestand } from './api'; // Ändere den Import
 import Detailseite from './components/Detailseite';
 

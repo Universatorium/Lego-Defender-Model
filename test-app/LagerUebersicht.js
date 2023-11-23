@@ -21,9 +21,7 @@ export default function LagerUebersicht() {
     const fetchData = async () => {
       try {
         const data = await getLagerBestand();
-        // console.log('Datenpunkte:', lagerBestaende);
 
-        // console.log('Nach dem Aufruf von getLagerBestand:', data);
         setLagerBestaende(data || []); // Setze den Zustand mit den abgerufenen Daten
       } catch (error) {
         console.error('Fehler beim Abrufen der Lagerbestände:', error);

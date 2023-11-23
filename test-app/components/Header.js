@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 const Header = () => {
     return (
     <View style={styles.headerBox}>
-        <Text style={styles.headerText}>Lego Defender</Text>
+        <Text style={styles.headerText}>Astley Motors</Text>
     </View>
     );
 }
