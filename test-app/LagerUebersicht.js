@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
-  StatusBar,
   ScrollView,
   ImageBackground,
 } from "react-native";
@@ -21,11 +20,10 @@ export default function LagerUebersicht() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Vor dem Aufruf von getLagerBestand');
         const data = await getLagerBestand();
-        console.log('Datenpunkte:', lagerBestaende);
+        // console.log('Datenpunkte:', lagerBestaende);
 
-        console.log('Nach dem Aufruf von getLagerBestand:', data);
+        // console.log('Nach dem Aufruf von getLagerBestand:', data);
         setLagerBestaende(data || []); // Setze den Zustand mit den abgerufenen Daten
       } catch (error) {
         console.error('Fehler beim Abrufen der Lagerbestände:', error);
