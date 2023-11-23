@@ -1,0 +1,16 @@
+[
+    {
+        "ID-Mitarbeiter": 1,
+        "email": "Hubert1@gmail.com",
+        "vorname": "Hubert",
+        "nachname": "Pouros",
+        "rolle": "Talal"
+    },
+    {
+        "ID-Mitarbeiter": 2,
+        "email": "Hu1@gmail.com",
+        "vorname": "Josef",
+        "nachname": "PFeikouros",
+        "rolle": "Plattform"
+    }
+]

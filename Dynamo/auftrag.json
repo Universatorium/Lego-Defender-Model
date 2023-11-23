@@ -1,0 +1,14 @@
+[
+    {
+        "ID-Auftrag": 1,
+        "ID-Kunde": 1,
+        "konfigurations": "test",
+        "bestelldatum": "17.11.2023"
+    },
+    {
+        "ID-Auftrag": 2,
+        "ID-Kunde": 2,
+        "konfigurations": "test2",
+        "bestelldatum": "19.11.2023"
+    }
+]
