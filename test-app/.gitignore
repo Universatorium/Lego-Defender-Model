@@ -41,3 +41,6 @@ yarn-error.*
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
+api.js
+api-test.js
