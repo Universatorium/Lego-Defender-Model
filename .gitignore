@@ -23,3 +23,5 @@ override.tf.json
 # Exclude CLI configuration files
 .terraformrc
 terraform.rc
+
+Userpool.js
