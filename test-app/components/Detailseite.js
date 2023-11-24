@@ -60,20 +60,20 @@ const Detailseite = ({ route }) => {
 
       {/* Überprüfe, ob detailData vorhanden ist, bevor du darauf zugreifst */}
       {detailData && detailData.beschreibung && (
-        <Text style={styles.detailText}>Beschreibung: {detailData.beschreibung.S}</Text>
+        <Text style={styles.detailText}>Beschreibung: {detailData.Beschreibung.S}</Text>
       )}
       {detailData && detailData.farbe && (
-        <Text style={styles.detailText}>Farbe: {detailData.farbe.S}</Text>
+        <Text style={styles.detailText}>Farbe: {detailData.Farbe.S}</Text>
       )}
       {detailData && detailData.preis && (
-        <Text style={styles.detailText}>Preis: {detailData.preis.N + ' €'}</Text>
+        <Text style={styles.detailText}>Preis: {detailData.Preis.N + ' €'}</Text>
       )}
 
       {/* Überprüfe, ob detailData vorhanden ist, bevor du darauf zugreifst */}
       {detailData &&
   Object.entries(detailData).map(([key, value]) => (
     <View key={key}>
-      {key === "S3-bild-url" && value.S && (
+      {key === "S3_bild_url" && value.S && (
         <Image
           source={{ uri: value.S }}
           style={styles.image}
