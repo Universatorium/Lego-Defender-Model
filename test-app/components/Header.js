@@ -4,6 +4,7 @@ const Header = () => {
     return (
     <View style={styles.headerBox}>
         <Text style={styles.headerText}>Astley Motors</Text>
+        {/* <image src=https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logo.png</image> */}
     </View>
     );
 }
