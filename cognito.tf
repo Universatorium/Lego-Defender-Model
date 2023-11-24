@@ -2,13 +2,13 @@ provider "aws" {
   region = "eu-central-1"
 }
 
-data "aws_vpc" "vpc" {
-  id = ""
-}
+# data "aws_vpc" "vpc" {
+#   id = ""
+# }
 
-data "aws_subnet" "subnet" {
-  id = ""
-}
+# data "aws_subnet" "subnet" {
+#   id = ""
+# }
 
 resource "aws_cognito_user_pool" "pool" {
   name = "DefenderAbschlussprojekt"
