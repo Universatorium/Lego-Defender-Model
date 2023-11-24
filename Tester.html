@@ -23,7 +23,7 @@
         }
 
         h1 {
-            color: #35c035;
+            color: #1570b6;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -34,7 +34,7 @@
         }
 
         .generate-button {
-            background-color: #35c035;
+            background-color: #1570b6;
             color: #fff;
             padding: 10px 30px;
             border: none;
@@ -128,14 +128,14 @@
                                      margin: [0, 0, 0, 10] },
                             ],
                         },
-                        { canvas: [{ type: 'line', x1: 0, y1: 0, x2: 520, y2: 0, lineWidth: 2, lineColor: '#35c035' }], margin: [0, 10] },
+                        { canvas: [{ type: 'line', x1: 0, y1: 0, x2: 520, y2: 0, lineWidth: 2, lineColor: '#1570b6' }], margin: [0, 10] },
                         '\n\n',
                         {
                             columns: [
                             {
     stack: [
         { 
-            text: 'Land Rover Defender Konfiguration',
+            text: ' Konfiguration',
             style: 'header',
             alignment: 'center',
             margin: [0, 0, 0, 20]
@@ -170,18 +170,14 @@
         },
     ],
 }
-                                // { image: carImageBase64,
-                                //    fit: [400, 100], 
-                                //    alignment: 'right', 
-                                //    margin: [0, 100]
-                                // },
+
                             ],
                         },
                     ],
                     styles: {
                         header: { fontSize: 18,
                           bold: true, 
-                          color: '#35c035',
+                          color: '#1570b6',
                           alignment: 'left',
                           margin: [0, 10, 0, 20]
                         },
@@ -193,7 +189,7 @@
                         companyName: { 
                           fontSize: 20,
                           bold: true,
-                          color: '#35c035',
+                          color: '#1570b6',
                           alignment: 'left', 
                           margin: [0, 0, 0, 10]
                         },
@@ -221,7 +217,7 @@
                 };
 
                 const buyerName = 'Max Mustermann';
-                const companyName = 'Reinlunzen GmbH';
+                const companyName = 'Astley Motors';
                 const contactDetails = [
                     { label: 'Ansprechpartner', value: 'Max Reinlunzen' },
                     { label: 'Telefon', value: '0190-666-6666' },
@@ -229,8 +225,8 @@
                     { label: 'Website', value: 'www.example.al' },
                 ];
 
-                const companyLogoUrl = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/firmenlogo/Logo.png';
-                const carImagePath = 'https://lego-defender-model-auto.s3.eu-central-1.amazonaws.com/bilder/carousel/range-rover-2015643_1280.jpg';
+                const companyLogoUrl = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logo.png';
+                const carImagePath = 'https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/carousel/range-rover-2015643_1280.jpg';
 
                 const totalCost = 50000;
 
@@ -241,7 +237,7 @@
                     const link = document.createElement('a');
                     link.href = url;
                     link.target = '_blank';
-                    link.download = 'LandRoverConfig.pdf';
+                    link.download = 'AstleyMotorsConfig.pdf';
                     link.innerText = 'PDF Herunterladen';
 
                     link.click();
