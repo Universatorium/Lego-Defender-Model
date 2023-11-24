@@ -161,7 +161,7 @@
   },
   {
     "ID_Lager": 17,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dach",
     "Farbe": "grün",
@@ -171,7 +171,7 @@
   },
   {
     "ID_Lager": 18,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dach",
     "Farbe": "rot",
@@ -181,7 +181,7 @@
   },
   {
     "ID_Lager": 19,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dach",
     "Farbe": "blau",
@@ -191,7 +191,7 @@
   },
   {
     "ID_Lager": 20,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dach",
     "Farbe": "gelb",
@@ -201,7 +201,7 @@
   },
   {
     "ID_Lager": 21,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dach",
     "Farbe": "schwarz",
@@ -211,7 +211,7 @@
   },
   {
     "ID_Lager": 22,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dach",
     "Farbe": "weiss",
@@ -221,7 +221,7 @@
   },
   {
     "ID_Lager": 23,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Dachträger",
     "Farbe": "schwarz",
@@ -231,7 +231,7 @@
   },
   {
     "ID_Lager": 24,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Aussenspiegel",
     "Farbe": "grün",
@@ -241,7 +241,7 @@
   },
   {
     "ID_Lager": 25,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Aussenspiegel",
     "Farbe": "rot",
@@ -251,7 +251,7 @@
   },
   {
     "ID_Lager": 26,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Aussenspiegel",
     "Farbe": "blau",
@@ -261,7 +261,7 @@
   },
   {
     "ID_Lager": 27,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Aussenspiegel",
     "Farbe": "gelb",
@@ -271,7 +271,7 @@
   },
   {
     "ID_Lager": 28,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Aussenspiegel",
     "Farbe": "schwarz",
@@ -281,7 +281,7 @@
   },
   {
     "ID_Lager": 29,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Aussenspiegel",
     "Farbe": "weiss",
@@ -291,7 +291,7 @@
   },
   {
     "ID_Lager": 30,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Karosserie",
     "Artikel": "Spritzschutz",
     "Farbe": "schwarz",
@@ -301,37 +301,37 @@
   },
   {
     "ID_Lager": 31,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Bereifung",
     "Artikel": "Sommerreifen",
-    "Farbe": "",
+    "Farbe": "schwarz",
     "Beschreibung": "Dunlop 225/55 R 15",
     "Preis": 250,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/reifen.jpg"
   },
   {
     "ID_Lager": 32,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Bereifung",
     "Artikel": "Winterreifen",
-    "Farbe": "",
+    "Farbe": "schwarz",
     "Beschreibung": "Goodyear 205/55 R 15",
     "Preis": 180,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg"
   },
   {
     "ID_Lager": 33,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Bereifung",
     "Artikel": "Ganzjahresreifen",
-    "Farbe": "",
+    "Farbe": "schwarz",
     "Beschreibung": "Bridgestone 225/55 R 15 M+S",
     "Preis": 200,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg"
   },
   {
     "ID_Lager": 34,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Ledersitze",
     "Farbe": "schwarz",
@@ -341,7 +341,7 @@
   },
   {
     "ID_Lager": 35,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Ledersitze",
     "Farbe": "braun",
@@ -351,7 +351,7 @@
   },
   {
     "ID_Lager": 36,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Ledersitze",
     "Farbe": "beige",
@@ -361,7 +361,7 @@
   },
   {
     "ID_Lager": 37,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Stoffsitze",
     "Farbe": "schwarz",
@@ -371,7 +371,7 @@
   },
   {
     "ID_Lager": 38,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Stoffsitze",
     "Farbe": "braun",
@@ -381,7 +381,7 @@
   },
   {
     "ID_Lager": 39,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Stoffsitze",
     "Farbe": "dunkelblau",
@@ -391,7 +391,7 @@
   },
   {
     "ID_Lager": 40,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Stoffsitze",
     "Farbe": "schwarz-gelb",
@@ -401,50 +401,50 @@
   },
   {
     "ID_Lager": 41,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Fussmatte Stoff",
-    "Farbe": "",
+    "Farbe": "schwarz",
     "Beschreibung": "Hochwertige, strapazierfähige Stoffmatten für Fahrer- und Beifahrerseit",
     "Preis": 120,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg"
   },
   {
     "ID_Lager": 42,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "Fussmatte Kunststoff",
-    "Farbe": "",
+    "Farbe": "dunkelgrau",
     "Beschreibung": "pflegeleicht, abwaschbar 2er-Set",
     "Preis": 60,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg"
   },
   {
     "ID_Lager": 43,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "getönte Scheiben 20%",
-    "Farbe": "",
+    "Farbe": "transparent",
     "Beschreibung": "",
     "Preis": 400,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_20.jpg"
   },
   {
     "ID_Lager": 44,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "getönte Scheiben 40%",
-    "Farbe": "",
+    "Farbe": "transparent",
     "Beschreibung": "",
     "Preis": 600,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_40.jpg"
   },
   {
     "ID_Lager": 45,
-    "Anzahl": "",
+    "Anzahl": 0,
     "Gruppe": "Innenausstattung",
     "Artikel": "getönte Scheiben 80%",
-    "Farbe": "",
+    "Farbe": "transparent",
     "Beschreibung": "",
     "Preis": 1100,
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_80.jpg"
