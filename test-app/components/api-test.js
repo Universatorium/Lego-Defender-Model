@@ -9,8 +9,8 @@ AWS.config.update({
 const region = 'eu-central-1';
 
 const credentials = {
-  accessKeyId: 'AKIAXRXZTN3WMSI7GL75',
-  secretAccessKey: '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',
+  accessKeyId: 'XXXXX',
+  secretAccessKey: 'XXXXX',
 };
 
 export const getLagerBestand = async () => {
