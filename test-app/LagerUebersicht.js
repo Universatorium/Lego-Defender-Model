@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     padding: 10,
     color: "black",
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 18,
   },
 
   rightAlignedCell: {
@@ -152,6 +152,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginVertical: 10,
+    // marginTop: 10,
+    // marginBottom: 10,
+    marginLeft: 8,
+    marginRight: 8,
     backgroundColor: "#181818",
     maxWidth: "95%",
   },

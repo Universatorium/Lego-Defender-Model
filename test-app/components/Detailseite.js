@@ -65,13 +65,14 @@ const Detailseite = ({ route }) => {
   };
   return (
     <SafeAreaView style={styles.container}>
+    <Header />
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handlePlusPress}>
           <Text style={styles.buttonText}>Hinzufügen</Text>
         </TouchableOpacity>
       </View>
   <View style={styles.container}>
-    <Header />
+    {/* <Header /> */}
       <Text style={styles.detailUs}>Details</Text>
       <Text style={styles.detailText}>ID: {mainData[0].N}           Anzahl: {mainData[1].N}</Text>
       {/* <Text style={styles.detailText}>Anzahl: {mainData[1].N}</Text> */}
