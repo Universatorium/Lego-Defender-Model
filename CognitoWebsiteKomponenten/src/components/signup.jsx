@@ -16,7 +16,7 @@ const Signup = () => {
               console.error(err);
           }
           console.log(data);
-          navigate('/login')
+          navigate('/verifyEmail', { state: { email } });
       });
   };
 

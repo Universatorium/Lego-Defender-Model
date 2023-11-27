@@ -10,6 +10,7 @@ import Konfig from './components/konfig';
 import { Account } from './components/Accounts/Account';
 import Signup from './components/signup';
 import ChangePassword from './components/Accounts/ChangePassword';
+import VerifyEmail from './components/verifyEmail';
 
 
 const root = document.getElementById('root');
@@ -20,6 +21,7 @@ rootElement.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/verifyEmail" element={<VerifyEmail />} />
       <Route path="/login" element={<Account><Login /></Account>} />
       <Route path="/changepassword" element={<Account><ChangePassword /></Account>} />
       <Route path="/konfig" element={<Konfig />} />
