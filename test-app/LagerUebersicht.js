@@ -21,9 +21,13 @@ export default function LagerUebersicht() {
     const fetchData = async () => {
       try {
         const data = await getLagerBestand();
-
+        const sortedData = data.sort((a, b) => {
+          const idA = a[0].N;
+          const idB = b[0].N;
+          return idA - idB; // Sortierkriterien
+        });
         
-        setLagerBestaende(data || []); // Setze den Zustand mit den abgerufenen Daten
+        setLagerBestaende(sortedData || []); // Setze den Zustand mit den abgerufenen Daten
       } catch (error) {
         console.error('Fehler beim Abrufen der Lagerbestände:', error);
       }
@@ -93,6 +97,7 @@ const handleRowPress = async (rowData) => {
                   style={[
                     styles.cell,
                     subIndex === 3 ? styles.rightAlignedCell : null,
+                    subIndex === 0 || subIndex === 1 ? styles.smallCell : null,
                   ]}
                 >
                   {value && value.N ? value.N : value && value.S ? value.S : ""}
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     backgroundColor: "#888",
     // marginTop: StatusBar.currentHeight,
     marginLeft: 8,
@@ -126,17 +131,17 @@ const styles = StyleSheet.create({
   },
   ueberschrift: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    borderBottomWidth: 1,
+    justifyContent: "space-around",
+    borderBottomWidth: 3,
     borderBottomColor: "#ddd",
     fontWeight: "bold",
     fontSize: 20,
-    padding: 10,
+    padding: 7,
     color: "darkblue",
   },
   cell: {
-    flex: 1,
-    minWidth: 70,
+    flex: 0.85,
+    minWidth: 20,
     // justifyContent: "center",
     alignItems: "center",
     padding: 10,
@@ -144,7 +149,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
   },
-
+  smallCell: {
+    flex: 0.5, // Oder einen anderen Wert, um die Breite anzupassen
+  },
   rightAlignedCell: {
     textAlign: "right", // Artikel rechtsbündig
   },
