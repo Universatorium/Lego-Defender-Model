@@ -22,6 +22,7 @@ export default function LagerUebersicht() {
       try {
         const data = await getLagerBestand();
 
+        
         setLagerBestaende(data || []); // Setze den Zustand mit den abgerufenen Daten
       } catch (error) {
         console.error('Fehler beim Abrufen der Lagerbestände:', error);
@@ -76,8 +77,8 @@ const handleRowPress = async (rowData) => {
         <View style={styles.row}>
           <Text style={styles.ueberschrift}>ID</Text>
           <Text style={styles.ueberschrift}>Anzahl</Text>
-          <Text style={styles.ueberschrift}>Name</Text>
           <Text style={styles.ueberschrift}>Artikel</Text>
+          <Text style={styles.ueberschrift}>Farbe</Text>
         </View>
         <ScrollView>
         {lagerBestaende.map((item, index) => (

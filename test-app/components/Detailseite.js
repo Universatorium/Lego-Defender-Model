@@ -1,20 +1,40 @@
 //Detailseite.js
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from './Header';
 import { useNavigation } from '@react-navigation/native';
-import { putArtikelInDynamoDB, getDetailDaten } from '../api'; // Stelle sicher, dass du die entsprechende Funktion zum Schreiben in die DynamoDB hast
+import { putArtikelInDynamoDB, getDetailDaten, getLagerBestand } from '../api'; // Stelle sicher, dass du die entsprechende Funktion zum Schreiben in die DynamoDB hast
 import { View, Text, TouchableOpacity, StyleSheet, Image, SafeAreaView } from "react-native";
 const Detailseite = ({ route }) => {
-  // Daten aus der vorherigen Seite über die Navigation übernehmen
   const { mainData, detailData } = route.params;
   const navigation = useNavigation();
- 
-  const fetchData = async () => {
+
+  // State für Detaildaten
+  const [currentDetailData, setCurrentDetailData] = useState(detailData);
+
+  // Beispiel-State und Funktion für Lagerbestände
+  const [lagerBestaende, setLagerBestaende] = useState([]);
+
+  useEffect(() => {
+    // Lade die Daten beim Mounten der Komponente
+    fetchData();
+  }, []);
+    const fetchData = async () => {
     try {
       // Rufe die Funktion auf, um die aktualisierten Detaildaten zu erhalten
       const updatedDetailData = await getDetailDaten(mainData[0].N);
 
       // ... (Aktualisiere den State oder mache andere Dinge mit den Daten)
+      setCurrentDetailData(prevState => ({
+        ...prevState,
+        ...updatedDetailData,
+      }));
+
+      // Lade die aktualisierten Lagerbestände
+      const updatedLagerBestaende = await getLagerBestand();
+      setLagerBestaende(prevState => [
+        ...prevState,
+        ...updatedLagerBestaende,
+      ]); // Setze den Zustand mit den abgerufenen Daten
     } catch (error) {
       console.error('Fehler beim Abrufen der Detaildaten:', error);
     }
@@ -24,13 +44,14 @@ const Detailseite = ({ route }) => {
     // Lade die Daten beim Mounten der Komponente
     fetchData();
   }, []);
- 
+
+
   const handlePlusPress = async () => {
     console.log('Artikel wird zum Lager hinzugefügt');
 
     try {
       const success = await putArtikelInDynamoDB(mainData[0].N);
-      
+
       if (success) {
         alert('Artikel wurde erfolgreich zum Lager hinzugefügt');
         // Nach dem Hinzufügen des Artikels rufe die fetchData-Funktion auf, um die Daten zu aktualisieren
@@ -42,7 +63,6 @@ const Detailseite = ({ route }) => {
       console.error('Fehler beim Hinzufügen des Artikels zum Lager:', error);
     }
   };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -55,12 +75,12 @@ const Detailseite = ({ route }) => {
       <Text style={styles.detailUs}>Details</Text>
       <Text style={styles.detailText}>ID: {mainData[0].N}           Anzahl: {mainData[1].N}</Text>
       {/* <Text style={styles.detailText}>Anzahl: {mainData[1].N}</Text> */}
-      <Text style={styles.detailText}>Name: {mainData[2].S}</Text>
-      <Text style={styles.detailText}>Artikel: {mainData[3].S}</Text>
+      <Text style={styles.detailText}>Artikel: {mainData[2].S}</Text>
+      <Text style={styles.detailText}>Farbe: {mainData[3].S}</Text>
 
       {/* Überprüfe, ob detailData vorhanden ist, bevor du darauf zugreifst */}
-      {detailData && detailData.beschreibung && (
-        <Text style={styles.detailText}>Beschreibung: {detailData.Beschreibung.S}</Text>
+      {detailData && detailData.Beschreibung && (
+        <Text style={styles.detailText}> {detailData.Beschreibung.S}</Text>
       )}
       {detailData && detailData.farbe && (
         <Text style={styles.detailText}>Farbe: {detailData.Farbe.S}</Text>
@@ -105,7 +125,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    width: 200,
+    width: 240,
     height: 150,
     marginBottom: 10,
   },
@@ -121,6 +141,11 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 25,
+  },
+  alert: {
     color: "white",
     fontWeight: "bold",
     fontSize: 25,
