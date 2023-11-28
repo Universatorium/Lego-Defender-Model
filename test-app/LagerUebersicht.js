@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 25,
+    fontSize: 20,
   },
   backgroundImage: {
     flex: 1,
