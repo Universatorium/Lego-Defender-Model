@@ -81,7 +81,7 @@ const Detailseite = ({ route }) => {
 
       {/* Überprüfe, ob detailData vorhanden ist, bevor du darauf zugreifst */}
       {detailData && detailData.Beschreibung && (
-        <Text style={styles.detailText}> {detailData.Beschreibung.S}</Text>
+        <Text style={styles.detailTextBeschreibung}> {detailData.Beschreibung.S}</Text>
       )}
       {detailData && detailData.farbe && (
         <Text style={styles.detailText}>Farbe: {detailData.Farbe.S}</Text>
@@ -119,6 +119,11 @@ const styles = StyleSheet.create({
   detailText: {
     fontSize: 18,
     marginBottom: 10,
+  },
+  detailTextBeschreibung: {
+    fontSize: 18,
+    marginBottom: 10,
+    fontWeight: "bold",
   },
   detailUs: {
     fontSize: 25,

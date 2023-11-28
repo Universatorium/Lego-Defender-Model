@@ -80,7 +80,7 @@ const handleRowPress = async (rowData) => {
         </View>
         <View style={styles.row}>
           <Text style={styles.ueberschrift}>ID</Text>
-          <Text style={styles.ueberschrift}>Anzahl</Text>
+          <Text style={styles.ueberschrift}>Bestand</Text>
           <Text style={styles.ueberschrift}>Artikel</Text>
           <Text style={styles.ueberschrift}>Farbe</Text>
         </View>
@@ -98,6 +98,7 @@ const handleRowPress = async (rowData) => {
                     styles.cell,
                     subIndex === 3 ? styles.rightAlignedCell : null,
                     subIndex === 0 || subIndex === 1 ? styles.smallCell : null,
+                    subIndex === 0 || subIndex === 1 ? styles.borderRight : null,
                   ]}
                 >
                   {value && value.N ? value.N : value && value.S ? value.S : ""}
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     // marginTop: StatusBar.currentHeight,
     marginLeft: 8,
     marginRight: 8,
-    maxWidth: "98%",
+    maxWidth: "99%",
   },
   row: {
     flexDirection: "row",
@@ -139,9 +140,14 @@ const styles = StyleSheet.create({
     padding: 7,
     color: "darkblue",
   },
+  borderRight: {
+    borderRightWidth: 1,
+    borderRightColor: "#ddd",
+  },
   cell: {
     flex: 0.85,
-    minWidth: 20,
+    minWidth: 80,
+    maxWidth: 110,
     // justifyContent: "center",
     alignItems: "center",
     padding: 10,
@@ -150,6 +156,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   smallCell: {
+    minWidth: 10,
+    maxWidth: 50,
     flex: 0.5, // Oder einen anderen Wert, um die Breite anzupassen
   },
   rightAlignedCell: {

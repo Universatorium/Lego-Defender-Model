@@ -38,14 +38,13 @@ const styles = StyleSheet.create({
   },
   
   headerText: {
-    marginTop: 5,
+    marginTop: 3,
     textAlign: 'left',
     fontSize: 20,
     color: 'darkblue',
     fontWeight: 'bold',
   },
   headerSubText: {
-    // marginTop: 5,
     textAlign: 'left',
     fontSize: 20,
     fontWeight: 'bold',
