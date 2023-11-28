@@ -72,10 +72,10 @@ const handleRowPress = async (rowData) => {
       <SafeAreaView style={styles.container}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={handlePlusPress}>
-            <Text style={styles.buttonText}>+</Text>
+            <Text style={styles.buttonText}>Hinzufügen</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleMinusPress}>
-            <Text style={styles.buttonText}>-</Text>
+            <Text style={styles.buttonText}>Entfernen</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.row}>
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     // marginBottom: 10,
     marginLeft: 8,
     marginRight: 8,
-    backgroundColor: "#181818",
+    backgroundColor: "lightblue",
     maxWidth: "95%",
   },
   button: {
@@ -183,6 +183,8 @@ const styles = StyleSheet.create({
     minWidth: 80,
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 15,
+
   },
   buttonText: {
     color: "white",

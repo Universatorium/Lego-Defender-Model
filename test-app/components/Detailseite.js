@@ -76,7 +76,7 @@ const Detailseite = ({ route }) => {
       <Text style={styles.detailUs}>Details</Text>
       <Text style={styles.detailText}>ID: {mainData[0].N}           Anzahl: {mainData[1].N}</Text>
       {/* <Text style={styles.detailText}>Anzahl: {mainData[1].N}</Text> */}
-      <Text style={styles.detailText}>Artikel: {mainData[2].S}</Text>
+      <Text style={styles.detailTextBeschreibung}>Artikel: {mainData[2].S}</Text>
       <Text style={styles.detailText}>Farbe: {mainData[3].S}</Text>
 
       {/* Überprüfe, ob detailData vorhanden ist, bevor du darauf zugreifst */}

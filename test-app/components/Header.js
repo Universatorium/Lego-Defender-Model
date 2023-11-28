@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     marginBottom: 20,
     backgroundColor: 'lightblue',
-    borderRadius: 15,
+    // borderRadius: 15,
     shadowColor: 'grey',
     flexDirection: 'row', // Setze die Ausrichtung auf horizontal
     alignItems: 'center', // Zentriere den Text und das Bild
