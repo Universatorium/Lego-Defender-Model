@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Three.js Modell mit MTL und Skybox</title>
+    <style>
+        body { 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4;
+        }
+        #controls {
+            position: absolute;
+            z-index: 1;
+            top: 20px;
+            left: 20px;
+            background: #ffffff;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+        select, input {
+            padding: 5px 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label {
+            font-size: 14px;
+            color: #333;
+        }
+        #three-container {
+            width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <div>
+            <label for="dachColor">Dachfarbe:</label>
+            <select id="dachColor">
+                <option value="weiss">Weiss</option>
+                <option value="gelb">Gelb</option>
+                <option value="blau">Blau</option>
+                <option value="gruen">Gruen</option>
+                <option value="rot">Rot</option>
+                <option value="schwarz">Schwarz</option>
+            </select>
+        </div>
+        <div>
+            <label for="motorhaubeColor">Motorhaubenfarbe:</label>
+            <select id="motorhaubeColor">
+                <option value="gelb">Gelb</option>
+                <option value="blau">Blau</option>
+                <option value="gruen">Gruen</option>
+                <option value="rot">Rot</option>
+                <option value="weiss">Weiss</option>
+                <option value="schwarz">Schwarz</option>
+            </select>
+        </div>
+        <div >
+            <label for="gehaeuseColor">Gehaeusefarbe:</label>
+            <select id="gehaeuseColor">
+                <option value="gelb">Gelb</option>
+                <option value="blau">Blau</option>
+                <option value="gruen">Gruen</option>
+                <option value="rot">Rot</option>
+                <option value="weiss">Weiss</option>
+                <option value="schwarz">Schwarz</option>
+            </select>
+        </div>
+        <div >
+            <label for="fensterColor">Gehaeusefarbe:</label>
+            <select id="fensterColor">
+                <option value="20">20%</option>
+                <option value="40">40%</option>
+                <option value="80">80%</option>
+            </select>
+        </div>
+        <div >
+            <input type="checkbox" id="dachtraegerVisible" checked>
+            <label for="dachtraegerVisible">Dachtraeger sichtbar</label>
+        </div>
+    </div>
+
+
+    <div id="three-container"></div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

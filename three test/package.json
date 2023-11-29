@@ -1,0 +1,19 @@
+{
+  "name": "three-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.158.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.2"
+  }
+}
