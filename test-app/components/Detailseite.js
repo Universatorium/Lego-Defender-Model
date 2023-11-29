@@ -128,7 +128,7 @@ const Detailseite = ({ route }) => {
                 <Text style={styles.detailUs}>Details</Text>
 
                 <Text style={styles.detailText}>
-                    ID: {mainData[0].N} Anzahl: {detailData.Anzahl.N}
+                    ID: {mainData[0].N}          Anzahl: {detailData.Anzahl.N}
                 </Text>
 
                 {/* <Text style={styles.detailText}>Anzahl: {mainData[1].N}</Text> */}
