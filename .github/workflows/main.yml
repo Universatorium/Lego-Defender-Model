@@ -44,7 +44,7 @@ jobs:
         env:
           AWS_BUCKET_NAME: github-terraform-tfstate1
           AWS_BUCKET_KEY_NAME: infra.tfstate
-        run: terraform init -backend-config="bucket=github-terraform-tfstate1" -backend-config="key=infra.tfstate" -backend-config="region=eu-central-1"
+        run: terraform init -backend-config="bucket=github-terraform-tfstates1" -backend-config="key=infra.tfstate" -backend-config="region=eu-central-1"
 
       - name: Terraform Validate
         id: validate
