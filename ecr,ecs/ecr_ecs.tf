@@ -343,7 +343,7 @@ resource "aws_launch_template" "frontend_launch_template" {
     ebs {
       volume_size = 30
     }
-  }
+  }         
 
   capacity_reservation_specification {
     capacity_reservation_preference = "open"
