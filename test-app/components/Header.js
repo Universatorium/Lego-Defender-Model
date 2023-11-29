@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     paddingLeft: 130,
     paddingRight: 30,
     marginBottom: 20,
-    backgroundColor: 'lightblue',
+    backgroundColor: '#009ACD',
     // borderRadius: 15,
     shadowColor: 'grey',
     flexDirection: 'row', // Setze die Ausrichtung auf horizontal
@@ -41,14 +41,14 @@ const styles = StyleSheet.create({
     marginTop: 3,
     textAlign: 'left',
     fontSize: 20,
-    color: 'darkblue',
+    color: 'white',
     fontWeight: 'bold',
   },
   headerSubText: {
     textAlign: 'left',
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'darkblue',
+    color: 'white',
   },
   logo: {
     width: 100, 

@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "darkblue",
+    backgroundColor: "#009ACD",
     borderColor: "#ddd",
     borderWidth: 2,
     padding: 10,
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   modalContainer: {
-    backgroundColor: 'lightblue',
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
     fontWeight: 'bold',
-    backgroundColor: "darkblue",
+    backgroundColor: "#009ACD",
     // borderColor: "#ddd",
     // borderWidth: 2,
     padding: 13,
