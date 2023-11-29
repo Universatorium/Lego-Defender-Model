@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button, StatusBar } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { useNavigation } from "@react-navigation/native";
 
-export default function QRKonstruktion() {
+export default function QRKonstruktion({ route }) {
+    const navigation = useNavigation();
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [showScanner, setShowScanner] = useState(false);
@@ -26,8 +28,11 @@ export default function QRKonstruktion() {
 
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`);
         stopScanning();
+        if (route.params?.onCodeScanned) {
+            route.params.onCodeScanned(data);
+        }
+        navigation.goBack();
     };
 
     if (hasPermission === null) {
