@@ -121,13 +121,14 @@ const Detailseite = ({ route }) => {
 </Modal>
 
   <View style={styles.container}>
-    {/* <Header /> */}
       <Text style={styles.detailUs}>Details</Text>
+      {mainData && mainData[1].N && (
       <Text style={styles.detailText}>ID: {mainData[0].N}                          Anzahl: {mainData[1].N}</Text>
+      )}
       {/* <Text style={styles.detailText}>Anzahl: {mainData[1].N}</Text> */}
       <Text style={styles.detailTextBeschreibung}>Artikel: {mainData[2].S}</Text>
       {/* <Text style={styles.detailText}>Farbe: {mainData[3].S}</Text> */}
-
+      
       {/* Überprüfe, ob detailData vorhanden ist, bevor du darauf zugreifst */}
       {detailData && detailData.Beschreibung && (
         <Text style={styles.detailTextBeschreibung}> {detailData.Beschreibung.S}</Text>
