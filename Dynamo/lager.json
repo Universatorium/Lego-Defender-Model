@@ -1,0 +1,412 @@
+[
+  {
+    "ID_Lager": 1,
+    "Anzahl": 0,
+    "Gruppe": "Motor",
+    "Artikel": "2.0-EcoBlue-XL",
+    "Farbe": "",
+    "Beschreibung": "Motor für Defender III, IV, Sport, 340 PS",
+    "Preis": 12000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vfs.jpg"
+  },
+  {
+    "ID_Lager": 2,
+    "Anzahl": 0,
+    "Gruppe": "Motor",
+    "Artikel": "4.0-MagaTurbo-XL",
+    "Farbe": "",
+    "Beschreibung": "Motor für Defender III, IV, Sport, 340 PS",
+    "Preis": 16000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vfs.jpg"
+  },
+  {
+    "ID_Lager": 3,
+    "Anzahl": 0,
+    "Gruppe": "Getriebe",
+    "Artikel": "Automatic 6-Gang",
+    "Farbe": "",
+    "Beschreibung": "",
+    "Preis": 6000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg"
+  },
+  {
+    "ID_Lager": 4,
+    "Anzahl": 0,
+    "Gruppe": "Getriebe",
+    "Artikel": "Manuell 5-Gang",
+    "Farbe": "",
+    "Beschreibung": "",
+    "Preis": 4500,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_vbs.jpg"
+  },
+  {
+    "ID_Lager": 5,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Rahmen",
+    "Farbe": "grün",
+    "Beschreibung": "",
+    "Preis": 20000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_gruen.jpg"
+  },
+  {
+    "ID_Lager": 6,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Rahmen",
+    "Farbe": "rot",
+    "Beschreibung": "",
+    "Preis": 20000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_rot.jpg"
+  },
+  {
+    "ID_Lager": 7,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Rahmen",
+    "Farbe": "blau",
+    "Beschreibung": "",
+    "Preis": 20000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_blau.jpg"
+  },
+  {
+    "ID_Lager": 8,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Rahmen",
+    "Farbe": "gelb",
+    "Beschreibung": "",
+    "Preis": 20000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie.jpg"
+  },
+  {
+    "ID_Lager": 9,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Rahmen",
+    "Farbe": "schwarz",
+    "Beschreibung": "",
+    "Preis": 20000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_schwarz.jpg"
+  },
+  {
+    "ID_Lager": 10,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Rahmen",
+    "Farbe": "weiss",
+    "Beschreibung": "",
+    "Preis": 20000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/karosserie_weiß.jpg"
+  },
+  {
+    "ID_Lager": 11,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Motorhaube",
+    "Farbe": "grün",
+    "Beschreibung": "",
+    "Preis": 800,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_gruen.jpg"
+  },
+  {
+    "ID_Lager": 12,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Motorhaube",
+    "Farbe": "rot",
+    "Beschreibung": "",
+    "Preis": 800,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_rot.jpg"
+  },
+  {
+    "ID_Lager": 13,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Motorhaube",
+    "Farbe": "blau",
+    "Beschreibung": "",
+    "Preis": 800,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_blau.jpg"
+  },
+  {
+    "ID_Lager": 14,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Motorhaube",
+    "Farbe": "gelb",
+    "Beschreibung": "",
+    "Preis": 800,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube.jpg"
+  },
+  {
+    "ID_Lager": 15,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Motorhaube",
+    "Farbe": "schwarz",
+    "Beschreibung": "",
+    "Preis": 800,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_schwarz.jpg"
+  },
+  {
+    "ID_Lager": 16,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Motorhaube",
+    "Farbe": "weiss",
+    "Beschreibung": "",
+    "Preis": 800,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/motorhaube_weiß.jpg"
+  },
+  {
+    "ID_Lager": 17,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dach",
+    "Farbe": "grün",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_gruen.jpg"
+  },
+  {
+    "ID_Lager": 18,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dach",
+    "Farbe": "rot",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_rot.jpg"
+  },
+  {
+    "ID_Lager": 19,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dach",
+    "Farbe": "blau",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_blau.jpg"
+  },
+  {
+    "ID_Lager": 20,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dach",
+    "Farbe": "gelb",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach.jpg"
+  },
+  {
+    "ID_Lager": 21,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dach",
+    "Farbe": "schwarz",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_schwarz.jpg"
+  },
+  {
+    "ID_Lager": 22,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dach",
+    "Farbe": "weiss",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/dach_weiß.jpg"
+  },
+  {
+    "ID_Lager": 23,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Dachträger",
+    "Farbe": "schwarz",
+    "Beschreibung": "Zum Transport sperriger Güter max. Last 80 kg",
+    "Preis": 380,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dachtraeger.jpg"
+  },
+  {
+    "ID_Lager": 28,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Aussenspiegel",
+    "Farbe": "schwarz",
+    "Beschreibung": "leicht getönt und beheizbar",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
+  },
+  {
+    "ID_Lager": 29,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Aussenspiegel",
+    "Farbe": "weiss",
+    "Beschreibung": "zur Zeit nicht lieferbar",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
+  },
+  {
+    "ID_Lager": 30,
+    "Anzahl": 0,
+    "Gruppe": "Karosserie",
+    "Artikel": "Spritzschutz",
+    "Farbe": "schwarz",
+    "Beschreibung": "verhindert keine Schwangerschaft",
+    "Preis": 200,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/spritzschutz.jpg"
+  },
+  {
+    "ID_Lager": 31,
+    "Anzahl": 0,
+    "Gruppe": "Bereifung",
+    "Artikel": "Sommerreifen",
+    "Farbe": "schwarz",
+    "Beschreibung": "Dunlop 225/55 R 15",
+    "Preis": 250,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/reifen.jpg"
+  },
+  {
+    "ID_Lager": 32,
+    "Anzahl": 0,
+    "Gruppe": "Bereifung",
+    "Artikel": "Winterreifen",
+    "Farbe": "schwarz",
+    "Beschreibung": "Goodyear 205/55 R 15",
+    "Preis": 180,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg"
+  },
+  {
+    "ID_Lager": 33,
+    "Anzahl": 0,
+    "Gruppe": "Bereifung",
+    "Artikel": "Ganzjahresreifen",
+    "Farbe": "schwarz",
+    "Beschreibung": "Bridgestone 225/55 R 15 M+S",
+    "Preis": 200,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/reifen.jpg"
+  },
+  {
+    "ID_Lager": 34,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Ledersitze",
+    "Farbe": "schwarz",
+    "Beschreibung": "",
+    "Preis": 2500,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 35,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Ledersitze",
+    "Farbe": "braun",
+    "Beschreibung": "",
+    "Preis": 2500,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 36,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Ledersitze",
+    "Farbe": "beige",
+    "Beschreibung": "",
+    "Preis": 2500,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 37,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Stoffsitze",
+    "Farbe": "schwarz",
+    "Beschreibung": "",
+    "Preis": 0,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 38,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Stoffsitze",
+    "Farbe": "braun",
+    "Beschreibung": "",
+    "Preis": 500,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 39,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Stoffsitze",
+    "Farbe": "dunkelblau",
+    "Beschreibung": "",
+    "Preis": 500,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 40,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Stoffsitze",
+    "Farbe": "schwarz-gelb",
+    "Beschreibung": "",
+    "Preis": 1000,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_v.jpg"
+  },
+  {
+    "ID_Lager": 41,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Fussmatte Stoff",
+    "Farbe": "schwarz",
+    "Beschreibung": "Hochwertige, strapazierfähige Stoffmatten für Fahrer- und Beifahrerseit",
+    "Preis": 120,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg"
+  },
+  {
+    "ID_Lager": 42,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "Fussmatte Kunststoff",
+    "Farbe": "dunkelgrau",
+    "Beschreibung": "pflegeleicht, abwaschbar 2er-Set",
+    "Preis": 60,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_rundum/landrover_bs.jpg"
+  },
+  {
+    "ID_Lager": 43,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "getönte Scheiben 20%",
+    "Farbe": "transparent",
+    "Beschreibung": "",
+    "Preis": 400,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_20.jpg"
+  },
+  {
+    "ID_Lager": 44,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "getönte Scheiben 40%",
+    "Farbe": "transparent",
+    "Beschreibung": "",
+    "Preis": 600,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_40.jpg"
+  },
+  {
+    "ID_Lager": 45,
+    "Anzahl": 0,
+    "Gruppe": "Innenausstattung",
+    "Artikel": "getönte Scheiben 80%",
+    "Farbe": "transparent",
+    "Beschreibung": "",
+    "Preis": 1100,
+    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/farben/scheibe_80.jpg"
+  }
+]
