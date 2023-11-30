@@ -230,46 +230,6 @@
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/dachtraeger.jpg"
   },
   {
-    "ID_Lager": 24,
-    "Anzahl": 0,
-    "Gruppe": "Karosserie",
-    "Artikel": "Aussenspiegel",
-    "Farbe": "grün",
-    "Beschreibung": "zur Zeit nicht lieferbar",
-    "Preis": 0,
-    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
-  },
-  {
-    "ID_Lager": 25,
-    "Anzahl": 0,
-    "Gruppe": "Karosserie",
-    "Artikel": "Aussenspiegel",
-    "Farbe": "rot",
-    "Beschreibung": "zur Zeit nicht lieferbar",
-    "Preis": 0,
-    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
-  },
-  {
-    "ID_Lager": 26,
-    "Anzahl": 0,
-    "Gruppe": "Karosserie",
-    "Artikel": "Aussenspiegel",
-    "Farbe": "blau",
-    "Beschreibung": "zur Zeit nicht lieferbar",
-    "Preis": 0,
-    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
-  },
-  {
-    "ID_Lager": 27,
-    "Anzahl": 0,
-    "Gruppe": "Karosserie",
-    "Artikel": "Aussenspiegel",
-    "Farbe": "gelb",
-    "Beschreibung": "zur Zeit nicht lieferbar",
-    "Preis": 0,
-    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
-  },
-  {
     "ID_Lager": 28,
     "Anzahl": 0,
     "Gruppe": "Karosserie",
