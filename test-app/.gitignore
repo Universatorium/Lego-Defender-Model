@@ -43,3 +43,5 @@ yarn-error.*
 *.tfstate.*
 
 Userpool.js
+.env
+api.js
