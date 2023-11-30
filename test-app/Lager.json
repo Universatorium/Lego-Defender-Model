@@ -240,16 +240,6 @@
     "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
   },
   {
-    "ID_Lager": 29,
-    "Anzahl": 0,
-    "Gruppe": "Karosserie",
-    "Artikel": "Aussenspiegel",
-    "Farbe": "weiss",
-    "Beschreibung": "zur Zeit nicht lieferbar",
-    "Preis": 0,
-    "S3_bild_url": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/landrover_web_lagerteile/standart/spiegel.jpg"
-  },
-  {
     "ID_Lager": 30,
     "Anzahl": 0,
     "Gruppe": "Karosserie",
