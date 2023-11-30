@@ -2,8 +2,7 @@ node_modules
 Dynamo/
 Dynamo/terraform.tfstate
 Dynamo/terraform.tfstate.backup
-api.js
-api-test.js
+
 # Local .terraform directories
 **/.terraform/
 
