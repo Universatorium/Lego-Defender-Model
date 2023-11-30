@@ -3,6 +3,12 @@ Dynamo/
 Dynamo/terraform.tfstate
 Dynamo/terraform.tfstate.backup
 
+api.js
+api-test.js
+Userpool.js
+
+.idea/
+
 # Local .terraform directories
 **/.terraform/
 
@@ -24,7 +30,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-Userpool.js
+
 
 # Local .terraform directories
 **/.terraform/*

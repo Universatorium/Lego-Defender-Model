@@ -33,3 +33,15 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+#terraform
+# Local .terraform directories
+**/.terraform/
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+api.js
+api-test.js
+Userpool.js
