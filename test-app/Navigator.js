@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     opacity: 1,
-    backgroundColor: 'darkblue',
+    backgroundColor: '#009ACD',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
