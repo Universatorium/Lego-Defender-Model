@@ -175,6 +175,28 @@ resource "aws_dynamodb_table" "fertigungsliste" {
   }
 }
 
+resource "aws_dynamodb_table" "produkte" {
+  name           = "Produkte"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "ID_Produkt"
+
+  attribute {
+    name = "ID_Produkt"
+    type = "N"
+  }
+}
+
+resource "aws_dynamodb_table" "Konfiguration" {
+  name           = "Konfiguration"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "ID_Konfiguration"
+
+  attribute {
+    name = "ID_Konfiguration"
+    type = "N"
+  }
+}
+
 
 ########################### local exec ####################
 resource "null_resource" "invoke_lambda" {

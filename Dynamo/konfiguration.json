@@ -1,0 +1,28 @@
+[
+    {
+        "ID_Konfiguration": 1,
+        "ID_Kunde": 0,
+        "Motor": 6,
+        "Getriebe": 8,
+        "Karosseriefarbe": 15,
+        "Motorhaubenfarbe": 22,
+        "Dachfarbe": 24,
+        "Dachträgerbe": 31,
+        "Getönte Scheiben": 44,
+        "Innenausstattung1": 32,
+        "Innenausstattung2": 34,
+        "Wartungsservie": 1,
+        "Versicherung": 3,
+        "Zulassungsservice": 4,
+        "Mobilitätsgarantie": 5, 
+        "Anhängevorrichtung": 40,
+        "Unterbodenschutztung": 41,
+        "Spritzschutz": 42,
+        "Ganzjahresreifen":"",
+        "Winterreifen":48,
+        "Sommerreifen": 47, 
+        "Pakete": 0,
+        "Abholort": 52
+
+    }
+]
