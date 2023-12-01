@@ -58,7 +58,7 @@ resource "aws_cognito_user_group" "service" {
 
 
 ########################
-resource "aws_iam_role" "cognito_dynamodb_role" {
+resource "aws_iam_role" "authenticated" {
   name = "CognitoDynamoDBRole"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
@@ -77,20 +77,117 @@ resource "aws_iam_policy" "dynamodb_policy" {
   path        = "/"
 
   policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-    {
-      Effect = "Allow",
-      Action = "dynamodb:*",
-      Resource = "*"
-      },
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Action": [
+                "dynamodb:*",
+                "dax:*",
+                "application-autoscaling:DeleteScalingPolicy",
+                "application-autoscaling:DeregisterScalableTarget",
+                "application-autoscaling:DescribeScalableTargets",
+                "application-autoscaling:DescribeScalingActivities",
+                "application-autoscaling:DescribeScalingPolicies",
+                "application-autoscaling:PutScalingPolicy",
+                "application-autoscaling:RegisterScalableTarget",
+                "cloudwatch:DeleteAlarms",
+                "cloudwatch:DescribeAlarmHistory",
+                "cloudwatch:DescribeAlarms",
+                "cloudwatch:DescribeAlarmsForMetric",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics",
+                "cloudwatch:PutMetricAlarm",
+                "cloudwatch:GetMetricData",
+                "datapipeline:ActivatePipeline",
+                "datapipeline:CreatePipeline",
+                "datapipeline:DeletePipeline",
+                "datapipeline:DescribeObjects",
+                "datapipeline:DescribePipelines",
+                "datapipeline:GetPipelineDefinition",
+                "datapipeline:ListPipelines",
+                "datapipeline:PutPipelineDefinition",
+                "datapipeline:QueryObjects",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeSecurityGroups",
+                "iam:GetRole",
+                "iam:ListRoles",
+                "kms:DescribeKey",
+                "kms:ListAliases",
+                "sns:CreateTopic",
+                "sns:DeleteTopic",
+                "sns:ListSubscriptions",
+                "sns:ListSubscriptionsByTopic",
+                "sns:ListTopics",
+                "sns:Subscribe",
+                "sns:Unsubscribe",
+                "sns:SetTopicAttributes",
+                "lambda:CreateFunction",
+                "lambda:ListFunctions",
+                "lambda:ListEventSourceMappings",
+                "lambda:CreateEventSourceMapping",
+                "lambda:DeleteEventSourceMapping",
+                "lambda:GetFunctionConfiguration",
+                "lambda:DeleteFunction",
+                "resource-groups:ListGroups",
+                "resource-groups:ListGroupResources",
+                "resource-groups:GetGroup",
+                "resource-groups:GetGroupQuery",
+                "resource-groups:DeleteGroup",
+                "resource-groups:CreateGroup",
+                "tag:GetResources",
+                "kinesis:ListStreams",
+                "kinesis:DescribeStream",
+                "kinesis:DescribeStreamSummary"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        },
+        {
+            "Action": "cloudwatch:GetInsightRuleReport",
+            "Effect": "Allow",
+            "Resource": "arn:aws:cloudwatch:*:*:insight-rule/DynamoDBContributorInsights*"
+        },
+        {
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Effect": "Allow",
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "iam:PassedToService": [
+                        "application-autoscaling.amazonaws.com",
+                        "application-autoscaling.amazonaws.com.cn",
+                        "dax.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": [
+                        "replication.dynamodb.amazonaws.com",
+                        "dax.amazonaws.com",
+                        "dynamodb.application-autoscaling.amazonaws.com",
+                        "contributorinsights.dynamodb.amazonaws.com",
+                        "kinesisreplication.dynamodb.amazonaws.com"
+                    ]
+                }
+            }
+        }
     ]
-  })
+})
 }
 
 resource "aws_iam_role_policy_attachment" "dynamodb_policy_attachment" {
   policy_arn = aws_iam_policy.dynamodb_policy.arn
-  role       = aws_iam_role.cognito_dynamodb_role.name
+  role       = aws_iam_role.authenticated.name
 }
 
 resource "aws_cognito_identity_pool" "identity_pool_mitarbeiter" {
@@ -107,6 +204,6 @@ resource "aws_cognito_identity_pool" "identity_pool_mitarbeiter" {
 resource "aws_cognito_identity_pool_roles_attachment" "id_pool_att" {
   identity_pool_id = aws_cognito_identity_pool.identity_pool_mitarbeiter.id
   roles = {
-    "cognito_dynamodb_role" = aws_iam_role.cognito_dynamodb_role.arn
+    "authenticated" = aws_iam_role.authenticated.arn
   }
 }
