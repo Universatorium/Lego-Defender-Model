@@ -74,7 +74,7 @@ resource "aws_iam_role" "cognito_dynamodb_role" {
       Action = "sts:AssumeRole",
       Effect = "Allow",
       Principal = {
-        Service = "cognito.amazonaws.com"
+        Service = "cognito-idp.amazonaws.com"
       }
     }]
   })
