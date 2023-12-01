@@ -33,18 +33,24 @@ export default function Login() {
                     "Mitarbeiterrolle: ",
                     accessToken.payload["cognito:groups"][0]
                 );
+                const idToken = data.idToken;
+                console.log("idToken: ", idToken);
                 if (
                     accessToken &&
                     accessToken.payload["cognito:groups"][0] === "Lager"
                 ) {
                     setMitarbeiter("Lager");
-                    navigation.navigate("LagerUebersicht");
+                    navigation.navigate("LagerUebersicht", {
+                        idToken: idToken,
+                    });
                 } else if (
                     accessToken &&
                     accessToken.payload["cognito:groups"][0] === "Konstruktion"
                 ) {
                     setMitarbeiter("Konstruktion");
-                    navigation.navigate("FertigungsListe");
+                    navigation.navigate("FertigungsListe", {
+                        idToken: idToken,
+                    });
                 }
             })
             .catch((err) => {
