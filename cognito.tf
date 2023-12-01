@@ -2,14 +2,6 @@ provider "aws" {
   region = "eu-central-1"
 }
 
-# data "aws_vpc" "vpc" {
-#   id = ""
-# }
-
-# data "aws_subnet" "subnet" {
-#   id = ""
-# }
-
 resource "aws_cognito_user_pool" "pool" {
   name = "DefenderAbschlussprojekt"
 
@@ -74,14 +66,14 @@ resource "aws_iam_role" "cognito_dynamodb_role" {
       Action = "sts:AssumeRole",
       Effect = "Allow",
       Principal = {
-        Service = "cognito.amazonaws.com"
+        Service = "cognito-idp.amazonaws.com"
       }
     }]
   })
 }
 
 resource "aws_iam_policy" "dynamodb_policy" {
-  name        = "dynamodb-policy"
+  name        = "dynamodb-policy-full"
   path        = "/"
 
   policy = jsonencode({
@@ -89,12 +81,7 @@ resource "aws_iam_policy" "dynamodb_policy" {
     Statement = [
     {
       Effect = "Allow",
-      Action = [
-        "dynamodb:DescribeTable",
-        "dynamodb:GetItem",
-        "dynamodb:PutItem",
-        "dynamodb:DeleteItem"
-      ],
+      Action = "dynamodb:*",
       Resource = "*"
       },
     ]
