@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import {
     Text,
     View,
@@ -9,16 +10,26 @@ import {
     ScrollView,
     ImageBackground,
 } from "react-native";
+import {removeArtikelInDynamoDB} from "./api";
 import dummydataKonstruktion from "./dummydataKonstruktion.json";
 
 const getDataFromFertigungsliste = () => {
     //Abfrage an die Datenbank anstatt dummydataKonstruktion
 };
-const handleHinzufuegen = () => {
-    //Zur Datenbank hinzufügen
-};
 
 export default function FertigungsListe() {
+    const navigation = useNavigation();    
+    const handleEingebaut = () => {
+        navigation.navigate("QRScannerKonstruktion", {
+            onCodeScanned: (data) => {
+                console.log("Scanned Code:", data);
+                removeArtikelInDynamoDB(data);
+            },
+        });
+    //aus Ferigungsliste löschen
+    };
+    
+
     return (
         <ImageBackground
             source={require("../assets/landrover_vfs.jpg")}
@@ -28,16 +39,16 @@ export default function FertigungsListe() {
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={handleHinzufuegen}
+                        onPress={handleEingebaut}
                     >
-                        <Text style={styles.buttonText}>hinzufügen</Text>
+                        <Text style={styles.buttonText}>Eingebaut</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.liste}>
                     {dummydataKonstruktion.map((item, index) => (
                         <View key={index} style={styles.row}>
-                            <Text style={styles.cell}>{item.id}</Text>
-                            <Text style={styles.cell}>{item.title}</Text>
+                            <Text style={styles.smallCell}>{item.id}</Text>
+                            <Text style={styles.smallCell}>{item.title}</Text>
                             <Text style={styles.cell}>{item.description}</Text>
                         </View>
                     ))}
@@ -51,48 +62,57 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: "#181818",
-        // marginTop: StatusBar.currentHeight,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    liste: {
-        maxWidth: "80%",
+        justifyContent: "space-around",
+        backgroundColor: "#888",
+        marginLeft: 8,
+        marginRight: 8,
+        maxWidth: "99%",
     },
     row: {
         flexDirection: "row",
+        justifyContent: "space-between",
         borderBottomWidth: 1,
         borderBottomColor: "#ddd",
     },
     cell: {
-        minWidth: 70,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        padding: 10,
-
-        color: "#ddd",
+        padding: 8,
+        color: "black",
+        fontWeight: "bold",
+        fontSize: 16,
+    },
+    smallCell: {
+        flex: 0.3,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 8,
+        color: "black",
+        fontWeight: "bold",
+        fontSize: 16,
     },
     buttonContainer: {
         flexDirection: "row",
         justifyContent: "space-around",
         marginVertical: 10,
-        backgroundColor: "#181818",
-        maxWidth: "95%",
+        // backgroundColor: "#181818",
+        maxWidth: "99%",
     },
     button: {
-        backgroundColor: "#181818",
-        borderColor: "#ddd",
+        backgroundColor: "#009ACD",
+        borderColor: "#009AEF",
         borderWidth: 2,
         padding: 10,
-        borderRadius: 5,
-        minWidth: 80,
+        width: 120,
         justifyContent: "center",
         alignItems: "center",
+        borderRadius: 15,
     },
     buttonText: {
         color: "white",
         fontWeight: "bold",
-        fontSize: 25,
+        fontSize: 20,
     },
     backgroundImage: {
         flex: 1,
