@@ -107,6 +107,6 @@ resource "aws_cognito_identity_pool" "identity_pool_mitarbeiter" {
 resource "aws_cognito_identity_pool_roles_attachment" "id_pool_att" {
   identity_pool_id = aws_cognito_identity_pool.identity_pool_mitarbeiter.id
   roles = {
-    "authenticated" = aws_iam_role.cognito_dynamodb_role.arn
+    "cognito_dynamodb_role" = aws_iam_role.cognito_dynamodb_role.arn
   }
 }
