@@ -6,7 +6,7 @@ import {
     putArtikelInDynamoDB,
     removeArtikelInDynamoDB,
     getDetailDaten,
-} from "./api"; // Stelle sicher, dass du die entsprechende Funktion zum Schreiben in die DynamoDB hast
+} from "./api2"; // Stelle sicher, dass du die entsprechende Funktion zum Schreiben in die DynamoDB hast
 import {
     View,
     Text,

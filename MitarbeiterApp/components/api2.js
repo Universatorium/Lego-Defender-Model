@@ -3,12 +3,13 @@ import { poolData } from "./Userpool";
 
 export const getLagerBestand = async (idToken) => {
     const jwtToken = idToken.jwtToken;
-    console.log("identityPoolId: ", poolData.IdentityPoolId);
-    console.log("userPoolId: ", poolData.UserPoolId);
-    console.log("jwtToken: ", jwtToken);
+    // console.log("identityPoolId: ", poolData.IdentityPoolId);
+    // console.log("userPoolId: ", poolData.UserPoolId);
+    // console.log("jwtToken: ", jwtToken);
 
     AWS.config.update({
         region: "eu-central-1",
+        dynamoDbCrc32: false,
         credentials: new AWS.CognitoIdentityCredentials({
             IdentityPoolId: poolData.IdentityPoolId,
             Logins: {
@@ -25,7 +26,7 @@ export const getLagerBestand = async (idToken) => {
 
     try {
         const data = await dynamoDB.scan(params).promise();
-        console.log("data: ", data);
+        // console.log("data: ", data.Items);
 
         return data.Items.map((item) => [
             item.ID_Lager,
@@ -38,7 +39,7 @@ export const getLagerBestand = async (idToken) => {
         return null;
     }
 };
-export const getDetailDaten = async (ID_Lager) => {
+export const getDetailDaten = async (idToken) => {
     const dynamoDB = new DynamoDB({ region, credentials });
     const params = {
         TableName: "Lager",

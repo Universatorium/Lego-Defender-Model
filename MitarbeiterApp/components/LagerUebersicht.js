@@ -26,9 +26,10 @@ export default function LagerUebersicht({ route }) {
     const fetchData = async () => {
         try {
             const data = await getLagerBestand(idToken);
+            console.log("Lagerbestände:", data);
             const sortedData = data.sort((a, b) => {
-                const idA = a[0].N;
-                const idB = b[0].N;
+                const idA = a[0];
+                const idB = b[0];
                 return idA - idB; // Sortierkriterien
             });
 
@@ -130,13 +131,32 @@ export default function LagerUebersicht({ route }) {
                                                 : null,
                                         ]}
                                     >
+                                        {value}
+                                    </Text>
+                                ))}
+                                {/* {item.map((value, subIndex) => (
+                                    <Text
+                                        key={subIndex}
+                                        style={[
+                                            styles.cell,
+                                            subIndex === 3
+                                                ? styles.rightAlignedCell
+                                                : null,
+                                            subIndex === 0 || subIndex === 1
+                                                ? styles.smallCell
+                                                : null,
+                                            subIndex === 0 || subIndex === 1
+                                                ? styles.borderRight
+                                                : null,
+                                        ]}
+                                    >
                                         {value && value.N
                                             ? value.N
                                             : value && value.S
                                             ? value.S
                                             : ""}
                                     </Text>
-                                ))}
+                                ))} */}
                             </View>
                         </TouchableOpacity>
                     ))}

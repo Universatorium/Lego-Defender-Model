@@ -45,4 +45,5 @@ terraform.tfstate
 Userpool.js
 api.js
 .idea/
+Dynamo/
 ```
