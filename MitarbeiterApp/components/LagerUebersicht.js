@@ -66,16 +66,18 @@ export default function LagerUebersicht({ route }) {
     // Eine neue Funktion, die aufgerufen wird, wenn eine Zeile geklickt wird
     const handleRowPress = async (rowData) => {
         console.log("Zeile geklickt! Daten:", rowData);
+        // console.log("idToken nach dem Zeile klicken", idToken);
 
         try {
             // Rufe zusätzliche Detaildaten von der API ab
-            const detailDaten = await getDetailDaten(rowData[0].N); // Annahme: Die ID ist der erste Wert in der Zeile
+            const detailDaten = await getDetailDaten(rowData[0], idToken); // Annahme: Die ID ist der erste Wert in der Zeile
             // console.log("Zusätzliche Detaildaten:", detailDaten);
 
             // Navigiere zur Detailseite und übergebe sowohl die Hauptdaten als auch die Detaildaten
             navigation.navigate("Detailseite", {
                 mainData: rowData,
                 detailData: detailDaten,
+                idToken: idToken,
             });
         } catch (error) {
             console.error("Fehler beim Abrufen der Detaildaten:", error);

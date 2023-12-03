@@ -39,17 +39,33 @@ export const getLagerBestand = async (idToken) => {
         return null;
     }
 };
-export const getDetailDaten = async (idToken) => {
-    const dynamoDB = new DynamoDB({ region, credentials });
+export const getDetailDaten = async (main, idToken) => {
+    console.log("main: ", main);
+    console.log("idToken: ", idToken);
+    const jwtToken = idToken.jwtToken;
+
+    AWS.config.update({
+        region: "eu-central-1",
+        dynamoDbCrc32: false,
+        credentials: new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: poolData.IdentityPoolId,
+            Logins: {
+                [`cognito-idp.eu-central-1.amazonaws.com/${poolData.UserPoolId}`]:
+                    jwtToken,
+            },
+        }),
+    });
+    const dynamoDB = new AWS.DynamoDB.DocumentClient();
     const params = {
         TableName: "Lager",
         Key: {
-            ID_Lager: { N: ID_Lager.toString() },
+            ID_Lager: main,
         },
     };
 
     try {
-        const data = await dynamoDB.getItem(params).promise();
+        const data = await dynamoDB.get(params).promise();
+        console.log("DDB Detail data: ", data);
         return data.Item;
     } catch (error) {
         console.error("Fehler beim Abrufen der Detaildaten:", error);

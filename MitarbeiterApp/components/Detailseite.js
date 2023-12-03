@@ -21,6 +21,7 @@ const Detailseite = ({ route }) => {
     // Create state variables for mainData and detailData
     const [mainData, setMainData] = useState(route.params.mainData);
     const [detailData, setDetailData] = useState(route.params.detailData);
+    const [idToken, setIdToken] = useState(route.params.idToken);
 
     // Beispiel-State und Funktion für Lagerbestände
     const [isModalVisible, setModalVisible] = useState(false);
@@ -36,11 +37,12 @@ const Detailseite = ({ route }) => {
     }, []);
 
     const fetchData = async () => {
-        console.log("mainData", mainData);
-        console.log("detailData", detailData);
         try {
             // Rufe die Funktion auf, um die aktualisierten Detaildaten zu erhalten
-            const updatedDetailData = await getDetailDaten(mainData[0].N);
+            const updatedDetailData = await getDetailDaten(
+                mainData[0],
+                idToken
+            );
             if (updatedDetailData) {
                 setDetailData(updatedDetailData); // Update detailData state
                 // console.log("Detaildaten aktualisiert:", updatedDetailData);
@@ -127,12 +129,13 @@ const Detailseite = ({ route }) => {
                 <Text style={styles.detailUs}>Details</Text>
 
                 <Text style={styles.detailText}>
-                    ID: {mainData[0].N} Anzahl: {detailData.Anzahl.N}
+                    ID: {mainData[0]} Anzahl:{" "}
+                    {detailData.Anzahl && detailData.Anzahl.N}
                 </Text>
 
                 {/* <Text style={styles.detailText}>Anzahl: {mainData[1].N}</Text> */}
                 <Text style={styles.detailTextBeschreibung}>
-                    Artikel: {detailData.Artikel.S}
+                    Artikel: {detailData.Artikel}
                 </Text>
                 {/* <Text style={styles.detailText}>Farbe: {mainData[3].S}</Text> */}
 
@@ -140,17 +143,17 @@ const Detailseite = ({ route }) => {
                 {detailData && detailData.Beschreibung && (
                     <Text style={styles.detailTextBeschreibung}>
                         {" "}
-                        {detailData.Beschreibung.S}
+                        {detailData.Beschreibung}
                     </Text>
                 )}
                 {detailData && detailData.Farbe && (
                     <Text style={styles.detailText}>
-                        Farbe: {detailData.Farbe.S}
+                        Farbe: {detailData.Farbe}
                     </Text>
                 )}
                 {detailData && detailData.Preis && (
                     <Text style={styles.detailText}>
-                        Preis: {detailData.Preis.N + " €"}
+                        Preis: {detailData.Preis + " €"}
                     </Text>
                 )}
 
@@ -158,9 +161,9 @@ const Detailseite = ({ route }) => {
                 {detailData &&
                     Object.entries(detailData).map(([key, value]) => (
                         <View key={key}>
-                            {key === "S3_bild_url" && value.S && (
+                            {key === "S3_bild_url" && value && (
                                 <Image
-                                    source={{ uri: value.S }}
+                                    source={{ uri: value }}
                                     style={styles.image}
                                     resizeMode="cover"
                                 />
