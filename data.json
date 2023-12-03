@@ -1,0 +1,20 @@
+{
+    "landRoverConfig": {
+      "model": "Goku",
+      "color": "Super Saiyajin",
+      "engine": "3.0L Vin Diesel",
+      "accessories": ["Off-Road Package", "Roof Rack", "Winch", "Snorkel"]
+    },
+    "buyerName": "Max Lunzen Munzen",
+    "companyName": "Astley Motors",
+    "contactDetails": [
+      {"label": "Ansprechpartner", "value": "Max Reinlunzen"},
+      {"label": "Telefon", "value": "0190-666-6666"},
+      {"label": "Email", "value": "max.reinlunzen@example.com"},
+      {"label": "Website", "value": "www.example.al"}
+    ],
+    "companyLogoUrl": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/firmenlogo/Logo.png",
+    "carImagePath": "https://lego-defender-model-s3bucket.s3.eu-central-1.amazonaws.com/bilder/carousel/range-rover-2015643_1280.jpg",
+    "totalCost": 50000
+  }
+  
