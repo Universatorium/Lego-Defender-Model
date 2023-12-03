@@ -10,25 +10,45 @@ import {
     ScrollView,
     ImageBackground,
 } from "react-native";
-import {removeArtikelInDynamoDB} from "./api";
+import Modal from "react-native-modal";
+
+import { removeArtikelInDynamoDB } from "./api";
 import dummydataKonstruktion from "./dummydataKonstruktion.json";
 
-const getDataFromFertigungsliste = () => {
-    //Abfrage an die Datenbank anstatt dummydataKonstruktion
-};
-
 export default function FertigungsListe() {
-    const navigation = useNavigation();    
+    let [dummyData, setDummyData] = useState(dummydataKonstruktion);
+    const [isModalVisible, setModalVisible] = useState(false);
+    const [modalText, setModalText] = useState("");
+
+    const toggleModal = (text) => {
+        setModalText(text);
+        setModalVisible(!isModalVisible);
+    };
+    const navigation = useNavigation();
+
+    useEffect(() => {
+        console.log("dummyData:", dummyData);
+    }, [dummyData]);
+
     const handleEingebaut = () => {
         navigation.navigate("QRScannerKonstruktion", {
             onCodeScanned: (data) => {
                 console.log("Scanned Code:", data);
-                removeArtikelInDynamoDB(data);
+                // removeArtikelInDynamoDB(data);
+                setDummyData((prevData) => {
+                    const newData = prevData.filter((item) => {
+                        console.log("Typeof", typeof data, typeof item.id);
+                        return String(item.id) !== String(data);
+                    });
+                    toggleModal("Artikel wurde erfolgreich eingebaut");
+                    console.log(newData);
+                    return newData;
+                });
+                console.log("dummyData after scan:", dummyData);
             },
         });
-    //aus Ferigungsliste löschen
+        //aus Ferigungsliste löschen
     };
-    
 
     return (
         <ImageBackground
@@ -36,19 +56,27 @@ export default function FertigungsListe() {
             style={styles.backgroundImage}
         >
             <SafeAreaView style={styles.container}>
+                <Modal isVisible={isModalVisible}>
+                    <View style={styles.modalContainer}>
+                        <Text style={styles.modalText}>{modalText}</Text>
+                        <TouchableOpacity onPress={() => toggleModal()}>
+                            <Text style={styles.modalButton}>OK</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Modal>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
                         style={styles.button}
                         onPress={handleEingebaut}
                     >
-                        <Text style={styles.buttonText}>Eingebaut</Text>
+                        <Text style={styles.buttonText}>Einbauen</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.liste}>
-                    {dummydataKonstruktion.map((item, index) => (
-                        <View key={index} style={styles.row}>
+                    {dummyData.map((item) => (
+                        <View key={item.id} style={styles.row}>
                             <Text style={styles.smallCell}>{item.id}</Text>
-                            <Text style={styles.smallCell}>{item.title}</Text>
+                            <Text style={styles.cell}>{item.title}</Text>
                             <Text style={styles.cell}>{item.description}</Text>
                         </View>
                     ))}
@@ -81,7 +109,7 @@ const styles = StyleSheet.create({
         padding: 8,
         color: "black",
         fontWeight: "bold",
-        fontSize: 16,
+        fontSize: 14,
     },
     smallCell: {
         flex: 0.3,
@@ -118,5 +146,30 @@ const styles = StyleSheet.create({
         flex: 1,
         opacity: 0.8,
         resizeMode: "cover",
+    },
+    modalContainer: {
+        backgroundColor: "white",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+        borderRadius: 10,
+    },
+    modalText: {
+        fontSize: 18,
+        marginBottom: 10,
+    },
+    modalButton: {
+        fontSize: 18,
+        color: "white",
+        fontWeight: "bold",
+        backgroundColor: "#009ACD",
+        // borderColor: "#ddd",
+        // borderWidth: 2,
+        padding: 13,
+        borderRadius: 15,
+        minWidth: 55,
+        marginTop: 10,
+        justifyContent: "center",
+        alignItems: "center",
     },
 });

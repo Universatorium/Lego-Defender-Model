@@ -16,10 +16,18 @@ import {
     putArtikelInDynamoDB,
     removeArtikelInDynamoDB,
 } from "./api"; // Stelle sicher, dass du den korrekten Pfad verwendest
+import Modal from "react-native-modal";
 
 export default function LagerUebersicht() {
     const navigation = useNavigation();
     const [lagerBestaende, setLagerBestaende] = useState([]); // Zustand für Lagerbestände
+    const [isModalVisible, setModalVisible] = useState(false);
+    const [modalText, setModalText] = useState("");
+
+    const toggleModal = (text) => {
+        setModalText(text);
+        setModalVisible(!isModalVisible);
+    };
 
     // Verwende useEffect, um die Daten beim Laden der Komponente zu holen
     const fetchData = async () => {
@@ -48,6 +56,9 @@ export default function LagerUebersicht() {
             onCodeScanned: (data) => {
                 console.log("Scanned Code:", data);
                 putArtikelInDynamoDB(data);
+                toggleModal(
+                    "Artikel mit der ID " + data + " wurde hinzugefügt"
+                );
             },
         });
     };
@@ -58,6 +69,7 @@ export default function LagerUebersicht() {
             onCodeScanned: (data) => {
                 console.log("Scanned Code:", data);
                 removeArtikelInDynamoDB(data);
+                toggleModal("Artikel mit der ID " + data + " wurde entfernt");
             },
         });
     };
@@ -86,6 +98,14 @@ export default function LagerUebersicht() {
             style={styles.backgroundImage}
         >
             <SafeAreaView style={styles.container}>
+                <Modal isVisible={isModalVisible}>
+                    <View style={styles.modalContainer}>
+                        <Text style={styles.modalText}>{modalText}</Text>
+                        <TouchableOpacity onPress={() => toggleModal()}>
+                            <Text style={styles.modalButton}>OK</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Modal>
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity
                         style={styles.button}
@@ -225,5 +245,30 @@ const styles = StyleSheet.create({
         flex: 1,
         opacity: 0.8,
         resizeMode: "cover",
+    },
+    modalContainer: {
+        backgroundColor: "white",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 20,
+        borderRadius: 10,
+    },
+    modalText: {
+        fontSize: 18,
+        marginBottom: 10,
+    },
+    modalButton: {
+        fontSize: 18,
+        color: "white",
+        fontWeight: "bold",
+        backgroundColor: "#009ACD",
+        // borderColor: "#ddd",
+        // borderWidth: 2,
+        padding: 13,
+        borderRadius: 15,
+        minWidth: 55,
+        marginTop: 10,
+        justifyContent: "center",
+        alignItems: "center",
     },
 });
